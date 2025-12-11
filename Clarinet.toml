@@ -1,6 +1,6 @@
 [project]
 name = "hashlock-lending"
-clarity_version = "4"
+# clarity_version = "4" # This line can be removed
 
 [contracts.hashlock-core]
 path = "contracts/hashlock-core.clar"
