@@ -1,0 +1,6 @@
+(define-public (execute (amount uint) (fee uint))
+  (let ((sbtc 'SP3DX3H4FEYZJZ586MFBS25ZW3HZDMEW92260R2PR.sbtc))
+    ;; Do something with flash loan here (e.g., arbitrage)
+    ;; Then repay + fee
+    (try! (contract-call? sbtc transfer (+ amount fee) tx-sender .hashlock-isolated-sbtc-v1 none))
+    (ok true)))
