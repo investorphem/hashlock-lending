@@ -1,0 +1,26 @@
+[project]
+name = "hashlock-lending"
+authors = ["Your Name"]
+description = "Trustless BTCFi Lending Protocol"
+telemetry = true
+requirements = []
+cache_location = ".cache"
+
+[contracts.hashlock-core]
+path = "contracts/hashlock-core.clar"
+
+[contracts.safe-vault-base]
+path = "contracts/safe-vault-base.clar"
+
+[contracts.isolated-flash-vault]
+path = "contracts/isolated-flash-vault.clar"
+
+[repl.analysis]
+passes = ["check_checker"]
+check_checker = { trusted_sender = true, trusted_caller = true, check_types = true }
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
