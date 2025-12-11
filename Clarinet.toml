@@ -1,15 +1,22 @@
 [project]
 name = "hashlock-lending"
-# clarity_version = "4" # This line can be removed
+# clarity_version = "4" # Removed this project-level line for cleaner config
 
 [contracts.hashlock-core]
 path = "contracts/hashlock-core.clar"
 clarity_version = "4"
+# The core contract must list its dependencies so they are deployed first
+depends_on = [
+    "hashlock-isolated-sbtc-v1", 
+    "safe-vault-base"
+]
 
 [contracts.hashlock-isolated-sbtc-v1]
 path = "contracts/hashlock-isolated-sbtc-v1.clar"
 clarity_version = "4"
+depends_on = [] # This contract has no *local* dependencies in the code provided
 
 [contracts.safe-vault-base]
 path = "contracts/safe-vault-base.clar"
 clarity_version = "4"
+depends_on = [] # This contract has no *local* dependencies in the code provided
