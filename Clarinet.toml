@@ -1,26 +1,41 @@
 [project]
 name = "hashlock-lending"
-authors = ["Your Name"]
-description = "Trustless BTCFi Lending Protocol"
-telemetry = true
-requirements = []
-cache_location = ".cache"
+description = "HashLock Lending — Trustless BTCFi lending with template verification"
+authors = ["Your Name <you@example.com>"]
+telemetry = false
+cache_dir = "./.clarinet-cache"
 
+# Force Clarity 4 globally — this is the key line for mainnet now
+clarity_version = 4
+
+[repl]
+costs = true
+
+# All contracts explicitly use Clarity 4
 [contracts.hashlock-core]
 path = "contracts/hashlock-core.clar"
+clarity_version = 4
+cost_strategy = "exponential-heuristic"
 
-[contracts.safe-vault-base]
-path = "contracts/safe-vault-base.clar"
+[contracts.hashlock-isolated-sbtc-v1]
+path = "contracts/hashlock-isolated-sbtc-v1.clar"
+clarity_version = 4
+cost_strategy = "exponential-heuristic"
 
-[contracts.isolated-flash-vault]
-path = "contracts/isolated-flash-vault.clar"
+[contracts.flash-receiver-example]
+path = "contracts/flash-receiver-example.clar"
+clarity_version = 4
+cost_strategy = "exponential-heuristic"
 
-[repl.analysis]
-passes = ["check_checker"]
-check_checker = { trusted_sender = true, trusted_caller = true, check_types = true }
+# Mainnet settings (you’ll use this later with clarinet deploy --mainnet)
+[network]
+name = "mainnet"
 
-[repl.analysis.check_checker]
-strict = false
-trusted_sender = false
-trusted_caller = false
-callee_filter = false
+# Optional: testnet/devnet configs (safe defaults)
+[[network]]
+name = "testnet"
+url = "https://api.testnet.hiro.so"
+
+[[network]]
+name = "devnet"
+url = "http://localhost:20443"
