@@ -20,8 +20,9 @@
 
 ;; Whitelist the exact vault template (this hash is locked forever)
 (begin
+  ;; CHANGED TO YOUR ADDRESS: SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519
   (map-set approved-templates
-    'SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-isolated-sbtc-v1
+    'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-isolated-sbtc-v1
     { name: "Isolated sBTC Flash Vault v1", audit: "Trail of Bits 2025" })
 )
 
