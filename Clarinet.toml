@@ -1,17 +1,18 @@
 [project]
 name = "hashlock-lending"
-# clarity_version = "4" # Removed this line (optional but cleaner)
-description = ""
-authors = []
+description = "A trustless lending protocol using sBTC hashlocks."
+authors = ["investorphem <dracuul54@gmail.com>"]
 telemetry = true
 requirements = []
 analysis = ["check_checker"]
 costs_version = 2
 
+# --- Individual Contract Definitions ---
+
 [contracts.hashlock-core]
 path = "contracts/hashlock-core.clar"
 clarity_version = "4"
-# Specify local dependencies so they deploy in the correct order
+epoch = "2.1"
 depends_on = [
     "hashlock-isolated-sbtc-v1",
     "safe-vault-base"
@@ -20,9 +21,11 @@ depends_on = [
 [contracts.hashlock-isolated-sbtc-v1]
 path = "contracts/hashlock-isolated-sbtc-v1.clar"
 clarity_version = "4"
+epoch = "2.1"
 depends_on = []
 
 [contracts.safe-vault-base]
 path = "contracts/safe-vault-base.clar"
 clarity_version = "4"
+epoch = "2.1"
 depends_on = []
