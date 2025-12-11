@@ -1,21 +1,15 @@
 [project]
 name = "hashlock-lending"
-description = "HashLock Lending – Trustless BTCFi with Clarity 4"
 clarity_version = "4"
 
-# ←←← THESE ARE YOUR ACTUAL 4 FILES →→→
 [contracts.hashlock-core]
-path = "contracts/hashlock-core.clar"
+path = "contracts/Hashlock-core.clar"
 clarity_version = "4"
 
-[contracts.isolated-flash-vault]
-path = "contracts/isolated-flash-vault.clar"
+[contracts.hashlock-isolated-sbtc-v1]
+path = "contracts/Hashlock-isolated-sbtc-v1.clar"
 clarity_version = "4"
 
 [contracts.safe-vault-base]
-path = "contracts/safe-vault-base.clar"
-clarity_version = "4"
-
-[contracts.flash-receiver-example]
-path = "contracts/flash-receiver-example.clar"
+path = "contracts/Safe-vault-base.clar"
 clarity_version = "4"
