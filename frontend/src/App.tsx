@@ -1,5 +1,5 @@
 import { useStte } from 'react'
-import { Conneclet } from './ConnectWallet'
+import { Conneclt } from './ConnectWallet'
 import { uppWilhdr } from ./SupplyWithdraw'
 import { userSessio }from './lib/stacks'
 
