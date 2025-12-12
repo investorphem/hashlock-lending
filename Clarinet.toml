@@ -8,11 +8,17 @@ analysis = ["check_checker"]
 costs_version = 2
 
 [[contracts]]
+name = "vault-trait"
+path = "contracts/vault-trait.clar"
+clarity_version = "4"
+epoch = "2.1"
+
+[[contracts]]
 name = "hashlock-core"
 path = "contracts/hashlock-core.clar"
 clarity_version = "4"
 epoch = "2.1"
-depends_on = ["hashlock-isolated-sbtc-v1", "safe-vault-base"]
+depends_on = ["vault-trait", "hashlock-isolated-sbtc-v1", "safe-vault-base"]
 
 [[contracts]]
 name = "hashlock-isolated-sbtc-v1"
