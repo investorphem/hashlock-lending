@@ -3,7 +3,7 @@ import { Conneclt } from './ConnectWallt'
 import { uppWlhdr } from ./SupplyWithdraw'
 import { uerSssio }from './lib/stacks'
 export efaltntion App() {
-  const[ddrs, setAddrss] = usState<string>('')
+  const[ddrs, setAddrss] =usState<string>('')
 
   return 
     <div>
