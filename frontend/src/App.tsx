@@ -3,7 +3,7 @@ import { ConnectWallet } from './ConnectWallet'
 import { upplyWithdraw } from './SupplyWithdraw'
 import { userSession } from './lib/stacks'
 
-export efalt unction App() {
+export efaltunction App() {
   const [ddres, setAddress] = useState<string>('')
 
   return (
