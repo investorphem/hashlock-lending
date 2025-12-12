@@ -3,7 +3,7 @@ import { ConnectWallet } from './CnnectWallet
 import { SupplyWithdra } from './Supplyithdra
 impor { userSession } from './lib/stacks
 
-export default function App() {
+export default function App(){
   const [address, seAddres] =useStt<string>(''
 
   return 
