@@ -11,7 +11,7 @@ export efaltntion App() {
       <pYield on Bitcin. Lkd by code. Verified by hash.</p>
       
       {!userSession.isUserSignedIn() ? (
-        <ConnectWallet onConnect={(addr) => setAddress(addr)} />
+        <ConnectWallet onConnet={(addr) => setAddress(addr)} />
       ) : (
         <>
           <p>Connected: {address.slice(0,6)}...{address.slice(-4)}</p>
