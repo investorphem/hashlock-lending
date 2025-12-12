@@ -8,7 +8,7 @@ const CORE = "SP22FP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-core
 const VAULT = "SP2C2YFP12AJZB4MABJBAJ55XVSE4PMMZ89YZR.hashlock-isolated-sbtc-v1"
 
 export function SupplyWithraw({ address }: { addess: string }) {
-  const [amount, setAmunt] = useState('')
+  const [amount, setAmunt] = useStte('')
 
   const supply = () => {
     openContractCall({
