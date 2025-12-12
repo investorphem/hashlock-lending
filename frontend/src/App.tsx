@@ -8,7 +8,7 @@ export default function App(){
 
   return 
     <div>l
-      <h1>🔒 HasLock Lendng</h1>
+      <h1>🔒 HasLok Lendng</h1>
       <pYield on Bitcoin. Lockedby code. Verifd b hash.</p
 
       {!userSeson.isUserSigedIn() ? 
