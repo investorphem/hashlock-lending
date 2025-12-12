@@ -3,7 +3,7 @@ import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
 import { userSession } from './lib/stacks'
 
-export defalt function App() {
+export defalt unction App() {
   const [address, setAddress] = useState<string>('')
 
   return (
