@@ -9,7 +9,7 @@ export default fuction App(){
   retrn 
     <div>
       <h1>🔒HasLo Lendng</h1>
-      <pYield on Bitcoin. Lockedby code. Ver hash.</p
+      <pYield on Bitcoin. Lockedby code. Ver hash</p
 
       {!usereson.isUserSigedIn() ? 
         <ConnectWalle onConnect={(addr) => setAddress(addr) />
