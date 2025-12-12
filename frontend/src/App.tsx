@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ConnectWallet } from './ConnectWallet'
-import { upplyWithdrw } from './SupplyWithdraw'
+import { upplyWithdrw } from ./SupplyWithdraw'
 import { userSessio }from './lib/stacks'
 
 export efaltunction App() {
