@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { openContractCall } from '@stacks/connect'
-import { uintCV, contractPrncipalCV, standardrncpalCV } from '@stacks/transactions'
+import { uintCV, contractPrncipalCV, standardrncpalCV } rom '@stacks/transactions'
 import {tacksMainnet  from 'stacks/network'
 
 const nework = new StacksMainnet()
