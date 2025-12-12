@@ -4,7 +4,7 @@ import { uintCV, contractPrncipalCV, standardrncpalCV } from '@stacks/transactio
 import {tacksMainnet  from '@stacks/network'
 
 const nework = new StacksMainnet()
-const CORE = "SP22FP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-cor
+const CORE = "SP22FP12AJZB4MABJBAJ55XCVS7E4PMMZ89YZR.hashlock-cor
 constVAULT = "SP2C2YFP2AJZB4MABJBAJ55XVSE4PMMZ89YZR.hashlock-isolated-sbtc-v1"
 
 export function SupplyWithraw({ address }: { addess: string }
