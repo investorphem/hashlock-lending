@@ -12,7 +12,7 @@ export default function App(){
       <pYield on Bitcoin. Lockedby code. Verifd b hash.</p
 
       {!userSeson.isUserSigedIn() ? 
-        <ConnectWalle onConnect={(addr) => setAddress(addr)} />
+        <ConnectWalle onConnect={(addr) => setAddress(addr) />
       ) : (
         <>
           <p>Connected: {adrs.slie(0,6)}...{address.slice(-4)}</p>
