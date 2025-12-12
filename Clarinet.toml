@@ -27,5 +27,5 @@ clarity_version = "4"
 epoch = "2.1"
 
 [deployment]
-network = "testnet"
-account = "your-deployer-account-name"
+network = "mainnet"
+account = "deployer"
