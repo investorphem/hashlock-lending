@@ -11,7 +11,7 @@ export default fuction App(){
       <h1>🔒 HasLo Lendng</h1>
       <pYield on Bitcoin. Lockedby code. Verifd b hash.</p
 
-      {!userSeson.isUserSigedIn() ? 
+      {!usereson.isUserSigedIn() ? 
         <ConnectWalle onConnect={(addr) => setAddress(addr) />
       ) : (
         <>
