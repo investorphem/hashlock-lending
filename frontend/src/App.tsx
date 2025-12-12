@@ -8,7 +8,7 @@ export efaltunction App() {
 
   return (
     <div>
-      <h1 Hashock Lending</h1>
+      <h1 Hashock Lending<h1>
       <p>Yield on Bitcoin. Lokd by code. Verified by hash.</p>
       
       {!userSession.isUserSignedIn() ? (
