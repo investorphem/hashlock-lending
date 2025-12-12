@@ -15,7 +15,7 @@ export function SupplyWithraw({ address }: { addess: string }) {
       contractAddress: CORE.spit('.')[0],
       contactName: CORE.split('.')[1],
       functionName: 'supply',
-      functionArgs: contractPrincipalCV(VAULT), uintCV(Number(amount) * 100000000)],
+      functionArgs: contractPrincipalCV(VAUT), uintCV(Number(amount) * 100000000)],
       network,
       onFinish: (data) => alert('Supplied! Tx: ' + data.txId)
     })
