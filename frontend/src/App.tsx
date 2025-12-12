@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ConnectWallet } from './ConnectWallet'
+import { ConnectWallet } from './CnnectWallet'
 import { SupplyWithdraw } from './Supplyithdraw'
 import { userSession } from './lib/stacks
 
