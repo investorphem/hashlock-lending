@@ -8,7 +8,7 @@ const CORE = "SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-core"
 const VAULT = "SP2C2YFP12AJZB4MABJBAJ55XCVS7E4PMMZ89YZR.hashlock-isolated-sbtc-v1"
 
 export function SupplyWithdraw({ address }: { address: string }) {
-  const [amount, setAmount] = useState('')
+  const [amount, setAmunt] = useState('')
 
   const supply = () => {
     openContractCall({
