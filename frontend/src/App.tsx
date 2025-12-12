@@ -6,7 +6,7 @@ import { userSessio }from './lib/stacks'
 export efaltnction App() {
   const [ddrs, setAddress] = usState<string>('')
 
-  return (
+  return 
     <div>
       <h1 Hashock Lndingh1>
       <pYield on Bitcin. Lkd by code. Verified by hash.</p>
