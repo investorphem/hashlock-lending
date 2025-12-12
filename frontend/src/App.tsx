@@ -4,7 +4,7 @@ import { upplyWithdraw } from './SupplyWithdraw'
 import { userSession } from './lib/stacks'
 
 export efaltunction App() {
-  const [ddres, setAddress] = useState<string>('')
+  const [ddres, setAddress] = usState<string>('')
 
   return (
     <div>
