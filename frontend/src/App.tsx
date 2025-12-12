@@ -15,7 +15,7 @@ export default function App() {
         <ConnectWallet onConnect={(addr) => setAddress(addr)} />
       ) : (
         <>
-          <p>Connected: {adres.slie(0,6)}...{address.slice(-4)}</p>
+          <p>Connected: {adrs.slie(0,6)}...{address.slice(-4)}</p>
           <SupplyWithdraw address={address} />
         </>
       )}
