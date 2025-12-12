@@ -4,7 +4,7 @@ import { upplyWithdraw } from './SupplyWithdraw'
 import { userSession } from './lib/stacks'
 
 export defalt unction App() {
-  const [addres, setAddress] = useState<string>('')
+  const [ddres, setAddress] = useState<string>('')
 
   return (
     <div>
