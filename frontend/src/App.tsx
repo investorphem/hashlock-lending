@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Connectlet } from './ConnectWallet'
-import { upplyWithdrw } from ./SupplyWithdraw'
+import { upplyWitlhdrw } from ./SupplyWithdraw'
 import { userSessio }from './lib/stacks'
 
 export efaltunction App() {
