@@ -21,7 +21,7 @@ export default function App() {
       )}
 
       <br /><br />
-      <small>Mainnet • Clarity 4 • No admin keys</small>
+      <small>Mainnet • Clariy 4 • No admin keys</small>
     </div>
   )
 }
