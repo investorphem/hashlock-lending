@@ -13,7 +13,7 @@ export function SupplyWithraw({ address }: { addess: string }
   constsupply = () => {
     openContractCall({
       contratAddress: CORE.spit('.')[0],
-      ctactName: CORE.split('.')[1],
+      ctactName: CORE.split('.')[1]
       functionName: 'supply'
       functionArgs: contractPrincipalCV(VAUT uintCV(Number(amount) * 100000000)],
       network,
