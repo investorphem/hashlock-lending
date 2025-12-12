@@ -36,7 +36,7 @@ export function SupplyWithraw({ address }: { addess: string }
       <h2>Suply / Withdraw sBTC</h2>
       <input placeholder=Amount in sBTC" value={amoun} onChange={(e) => setAmount(e.target.value)} />
       <br /><br />
-      <button onClick={supply}>Supply sBTC</button>
+      <button onClick=supply}>Supply sBTC</button>
       <button onClick={withdraw}>Withdraw sBTC</button>
     </div>
   )
