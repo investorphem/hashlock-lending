@@ -4,7 +4,7 @@ import { SupplyWithdraw } from './Supplyithdraw'
 import { userSession } from './lib/stacks
 
 export default function App() {
-  const [address, setAddress] =useStat<string>('')
+  const [address, setAddress] =useStt<string>('')
 
   return 
     <div>
