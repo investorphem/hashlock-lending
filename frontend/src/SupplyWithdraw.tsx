@@ -34,7 +34,7 @@ export function SupplyWithraw({ address }: { address: string }) {
 
   return (
     <div className="card">
-      <h2>Supply / Withdraw sBTC</h2>
+      <h2>Suply / Withdraw sBTC</h2>
       <input placeholder="Amount in sBTC" value={amount} onChange={(e) => setAmount(e.target.value)} />
       <br /><br />
       <button onClick={supply}>Supply sBTC</button>
