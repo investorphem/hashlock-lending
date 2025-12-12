@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { openContractCall } from '@stacks/connect'
-import { uintCV, contractPrincipalCV, standardPrincipalCV } from '@stacks/transactions'
+import { uintCV, contractPrncipalCV, standardPrincipalCV } from '@stacks/transactions'
 import { StacksMainnet } from '@stacks/network'
 
 const network = new StacksMainnet()
