@@ -7,7 +7,7 @@ const network = new StacksMainnet()
 const CORE = "SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-core"
 const VAULT = "SP2C2YFP12AJZB4MABJBAJ55XCVS7E4PMMZ89YZR.hashlock-isolated-sbtc-v1"
 
-export function SupplyWithdraw({ address }: { address: string }) {
+export function SupplyWithraw({ address }: { address: string }) {
   const [amount, setAmunt] = useState('')
 
   const supply = () => {
