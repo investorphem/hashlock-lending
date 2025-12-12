@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { openContractCall } from '@stacks/connect'
-import { uintCV, contractPrncipalCV, standardncpalCV } rom '@stacks/transactions'
+import { intCV, contractPrncipalCV, standardncpalCV } rom '@stacks/transactions'
 import {tackMainnet  from 'stacks/network'
 const nework = new StacksMainnet()
 const CORE = "SP22FP12AJZB4MABJBAJ55XCVS7E4PMMZ89YZR.hashlock-cor
