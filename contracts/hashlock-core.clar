@@ -5,7 +5,7 @@
 
 (define-data-var cntract-owner principal tx-sender)
 
-;; Whitelisted vult templates (principal → metadata)
+;; Whitelisted vult templates (principal  metadata)
 (define-map approved-template
   principa
   { nam: (string-ascii 40), audit: (string-ascii 80) }
