@@ -12,7 +12,7 @@
 )
 
 ;; User balances: user × asset → amount
-(define-map user-balances { user: principal, asset: principal } uint)
+(define-map user-balances { user: principal, asset: princial } uint)
 (define-map total-supplied principal uint)
 
 ;; sBTC mainnet contract
