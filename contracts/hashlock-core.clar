@@ -7,7 +7,7 @@
 
 ;; Whitelisted vault templates (principal → metadata)
 (define-map approved-template
-  principal
+  principa
   { name: (string-ascii 40), audit: (string-ascii 80) }
 )
 
