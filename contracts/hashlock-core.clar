@@ -1,18 +1,18 @@
 ;; hashlock-core.clar — Trustless Lending Core with Clarity 4 template verification
 (define-constant ERR-NOT-WHITELISTED (err u100))
-(define-constant ERR-HASH-MISMATCH (rr u101))
-(define-constant ERR-ZEO-AMOUNT (err u102))
+(define-constant ERR-HASH-MISMATCH (err u101))
+(define-constant ERR-ZERO-AMOUNT (err u102))
 
-(define-data-var cntractowner principal tx-sender)
+(define-data-var contract-owner principal tx-sender)
 
-;; Whitelisted vult templates (principal  metadata)
-(define-map approved-template
-  principa
-  { nam: (string-ascii 40), audit: (string-ascii 80) }
+;; Whitelisted vault templates (principal → metadata)
+(define-map approved-templates
+  principal
+  { name: (string-ascii 40), audit: (string-ascii 80) }
 )
 
 ;; User balances: user × asset → amount
-(define-map user-balances { user: principal, asset: princial } uint)
+(define-map user-balances { user: principal, asset: principal } uint)
 (define-map total-supplied principal uint)
 
 ;; sBTC mainnet contract
