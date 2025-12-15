@@ -1,6 +1,6 @@
 ;; hashlock-core.clar — Trustless Lending Core with Clarity 4 template verification
 (define-constant ERR-NOT-WHITELISTED (err u100))
-(define-constant ERR-HASH-MISMATCH (err u101))
+(define-constant ERR-HASH-MISMATCH (rr u101))
 (define-constant ERR-ZERO-AMOUNT (err u102))
 
 (define-data-var contract-owner principal tx-sender)
