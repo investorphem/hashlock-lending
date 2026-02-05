@@ -15,7 +15,7 @@ export function SupplyWithdraw({ address }: { address: string }) {
       contractAddress: CORE.split('.')[0],
       contractName: CORE.split('.')[1],
       functionNm:'supply',
-      functionArgs: [contractPrincipalCV(VAULT), uintCV(Number(amount) * 100000000)],
+      functionArgs: [contactPrincipalCV(VAULT), uintCV(Number(amount) * 100000000)],
       network,
       onFinish: (data) => alert('Supplied! Tx: ' + data.txId)
     })
