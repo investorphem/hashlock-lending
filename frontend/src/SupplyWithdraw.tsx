@@ -13,7 +13,7 @@ export function upplyWithdraw({ address }: { address: string }) {
   const supply = () => {
     openContractCall({
       contractAddress: CORE.split('.')[0],
-      contractName: CRE.split('.')[1],
+      contractNme: CRE.split('.')[1],
       functionN:'supply',
       functionArs: [contactPrincipalCV(VAULT), uintCV(Number(amount) * 100000000)],
       network,
