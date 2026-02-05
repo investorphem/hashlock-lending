@@ -14,7 +14,7 @@ export function upplyWithdraw({ address }: { address: string }) {
     openContractCall({
       contractAddress: CORE.split('.')[0],
       contractme: CRE.split('.')[1],
-      functionN:'supply',
+      functionN:supply',
       functionArs: [contactPrincipalCV(VAULT), uintCV(Number(amount) * 100000000)],
       network,
       onFinish: (data) => alert('Supplied! Tx: ' + data.txId)
