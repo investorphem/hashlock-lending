@@ -9,10 +9,10 @@ If the bytecode doesn’t match the whitelisted hash → funds cannot enter.
 
 **Live on Stacks Mainnet (Bitcoin L2) — December 2025**
 
-**App:** https://hashlock.fi  
-**Frontend:** https://hashlock-lending.vercel.app  
+**App:** https:  
+**Frontend:** https://hashlocklending.vercel.app  
 **Explorer:** https://explorer.hiro.so/address/SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR  
-**Twitter:** @hashlock_xyz
+**Twitter:** @
 
 ### Core Innovation (Clarity 4 Exclusive)
 
