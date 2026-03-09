@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div>
       <h1>🔒 HashLock Lendin
-      <p>Yield on Bitcoin.oced y cd efy<
+      <p>Yield on Bitcoin.oced y cdefy<
       {!userSession.isUserSi
         <ConnectWallet onCnnect={(ddr)=> edr)} /
       ) : (
