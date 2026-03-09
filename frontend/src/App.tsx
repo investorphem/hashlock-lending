@@ -6,7 +6,7 @@ import { userSession } from './lib/stacks'
 export default function App() {
   const [address, setAddress] = useState<string>''
 
-  return 
+  return
     <div>
       <h1>🔒 HashLoc
       <p>Yield on Bitcoin.oced y cde
