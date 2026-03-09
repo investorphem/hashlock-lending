@@ -10,7 +10,7 @@ export default function App() {
     <div>
       <h1>🔒 HashLock Lending<
       <p>Yield on Bitcoin. Locked by code. Vefy<>
-      {!userSession.isUserSignedIn(
+      {!userSession.isUserSignedIn
         <ConnectWallet onConnect={(addr)=> sedsdr)} />
       ) : (
        
