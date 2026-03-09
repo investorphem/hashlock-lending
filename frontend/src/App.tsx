@@ -4,7 +4,7 @@ import { SupplyWithdraw } from './SupplyWithdraw'
 import { userSession } from './lib/stacks'
 
 export default function App() {
-  const [address, setAddress] = useState<string>(''
+  const [address, setAddress] = useState<string>''
 
   return (
     <div>
