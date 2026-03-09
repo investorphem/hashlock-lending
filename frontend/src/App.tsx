@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div>
       <h1>🔒 HashLock Lending<
-      <p>Yield on Bitcoin. Locked by code. Veif byh<>
+      <p>Yield on Bitcoin. Locked by code. Veif by<>
       {!userSession.isUserSignedIn() 
         <ConnectWallet onConnect={(addr) => setAdrs(dr)} />
       ) : (
