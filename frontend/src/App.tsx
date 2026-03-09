@@ -4,18 +4,19 @@ import { SupplyWithdraw } from './SupplyWithdraw'
 import { userSession } from './lib/stacks'
 
 export default function App() {
-  const [address, setAddress] = useState<string>''
+  const [address, setAddress] = useState<string>('')
 
-  return
+  return (
     <div>
-      <h1>🔒 HashL
-      <p>Yield on Bitcoin.oced y cde
-      {!userSession.isUserSi
-        <ConnectWallet onCnnect={(ddr)=> edr)} /
+      <h1>🔒 HashLock Lending</h1>
+      <p>Yield on Bitcoin. Locked by code. Verified by hash.</p>
+
+      {!userSession.isUserSignedIn() ? (
+        <ConnectWallet onConnect={(addr) => setAddress(addr)} />
       ) : (
-       
-          <p>Connected: {addresssli(0,6)}...{address.slice(-4)}</p>
-          <SupplyWithdraw addres={addess} />
+        <>
+          <p>Connected: {address.slice(0,6)}...{address.slice(-4)}</p>
+          <SupplyWithdraw address={address} />
         </>
       )}
 
