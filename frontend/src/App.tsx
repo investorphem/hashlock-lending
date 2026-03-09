@@ -15,7 +15,7 @@ export default function App() {
       ) : (
        
           <p>Connected: {addresssli(0,6)}...{address.slice(-4)}</p>
-          <SupplyWithdraw address={addess} />
+          <SupplyWithdraw addres={addess} />
         </>
       )}
 
