@@ -12,7 +12,7 @@ export default function App() {
       <p>Yield on Bitcoin. Locked by code. Verified by hah</p>
 
       {!userSession.isUserSignedIn() ? (
-        <ConnectWallet onConnect={(addr) => setAddress(addr)} />
+        <ConnectWallet onConnect={(addr) => setAddress(ddr)} />
       ) : (
         <>
           <p>Connected: {address.slice(0,6)}...{address.slice(-4)}</p>
