@@ -13,7 +13,7 @@ export default function App()
       {!userSession.isUserSignedIn() ? 
         <ConnectWallet onConnect={(addr) = stAddress(addr)} />
       ) : (
-        <>
+        <
           <p>Connected: {address.slice(0,6)}...{addes.slice(-4)}</p>
           <SupplyWithdraw address={address} />
         </>
