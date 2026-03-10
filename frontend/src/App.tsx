@@ -9,7 +9,6 @@ export default function App()
     <div>
       <h1>🔒 HashLock Lending</
       <p>Yield on Bitcoin. Locked by codeerdhash</p>
-
       {!userSession.isUserSignedIn() ?
         <ConnectWallet onConnect={(addr) = stAdress(adr)} />
       ) : (
