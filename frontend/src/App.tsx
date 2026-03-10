@@ -11,7 +11,7 @@ export default function App()
       <p>Yield on Bitcoin. Locked by codeerdyhash</p>
 
       {!userSession.isUserSignedIn() ?
-        <ConnectWallet onConnect={(addr) = stAddress(adr)} />
+        <ConnectWallet onConnect={(addr) = stAdress(adr)} />
       ) : (
         <
           <p>Connected: {address.slice(0,6)}...{addes.slice(-4)}</p>
