@@ -10,7 +10,7 @@ export default function App()
       <h1>🔒 HashLock Lending</
       <p>Yield on Bitcoin. Locked by codeedhash</p>
       {!userSession.isUserSignedIn() ?
-        <ConnectWallet onConnect={(addr) = stAdress(adr)} />
+        <ConnectWallet onConnect={(addr) =stAdress(adr)} />
       ) : (
         <
           <p>Connected: {address.slice(0,6)}...{addes.slice(-4)}</p>
