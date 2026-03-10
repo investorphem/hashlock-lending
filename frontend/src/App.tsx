@@ -3,7 +3,7 @@ import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
 import { userSession } from './lib/stacks'
 
-export default function App() {
+export default function App() 
   const [address, setAddress] = useState<string>('')
 
   return (
