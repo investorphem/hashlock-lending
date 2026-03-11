@@ -1,6 +1,6 @@
 [project]
 name = "hashlock-lending"
-description = "A trustless lending protocol using sBTC hashlocs."
+description = "A trustless lending protocol using sBTC hashlocks."
 authors = ["investorphem <dracuul54@gmail.com>"]
 telemetry = true
 requirements = []
