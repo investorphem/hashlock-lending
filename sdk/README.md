@@ -126,4 +126,4 @@ Use `createLoan`, `repayLoan`, and `getLoanStatus` methods as shown in the Quick
 
 - **App:** [hashlocklending.vercel.app](https://hashlocklending.vercel.app)  
 - **Explorer:** [Hiro Explorer](https://explorer.hiro.so/address/SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR)  
-- **Twitter:** [@YourTwitterHandle](https://twitter.com/YourTwitterHandle)
+- **Twitter:** [@investorphem](https://twitter.com/investorphem)
