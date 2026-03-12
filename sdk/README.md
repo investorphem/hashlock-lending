@@ -22,32 +22,38 @@ yarn add hashlock-lending-sdk
 
 ---
 
-## Quick Start
+## Quick Start (with Wallet Integration)
 
 ```javascript
 const { HashlockClient } = require('hashlock-lending-sdk');
 
-// Initialize client
-const client = new HashlockClient({
-  network: 'mainnet', // or 'testnet'
-  wallet: 'xverse' // optional
-});
+async function main() {
+  // Initialize SDK with Xverse wallet on mainnet
+  const client = new HashlockClient({ network: "mainnet", walletType: "xverse" });
 
-// Create a new loan
-const preimage = "super-secret";
-const loanId = await client.createLoan({
-  borrower: "SP123...",
-  lender: "SP456...",
-  amount: 1000,
-  preimage
-});
+  // Connect wallet
+  await client.connectWallet({ appName: "HashLock SDK Demo" });
 
-// Repay a loan
-await client.repayLoan(loanId, preimage);
+  // Create a new loan
+  const loanId = await client.createLoan({
+    loanId: "loan1",
+    borrower: "SP123...",
+    lender: "SP456...",
+    amount: 1000,
+    preimage: "super-secret"
+  });
 
-// Check loan status
-const status = await client.getLoanStatus(loanId);
-console.log(status);
+  console.log("Loan created:", await client.getLoanStatus(loanId));
+
+  // Repay loan
+  await client.repayLoan(loanId, "super-secret");
+  console.log("Loan repaid:", await client.getLoanStatus(loanId));
+
+  // Send STX tokens (optional)
+  // await client.sendSTX({ recipient: "SP789...", amount: 1000 });
+}
+
+main();
 ```
 
 ---
@@ -61,6 +67,7 @@ console.log(status);
 | Immutable vaults | ✅ Pure templates | ❌ Proxy upgrades required |
 | Admin keys | ✅ None | ❌ Always present |
 | Clarity version | ✅ 4 | ❌ 2/3 |
+| Wallet Integration | ✅ Xverse / Leather | ❌ None |
 
 ---
 
@@ -83,24 +90,26 @@ git clone https://github.com/yourusername/hashlock-lending.git
 cd hashlock-lending/sdk
 ```
 
-### 2. Verify Contracts (optional)
+### 2. Install Dependencies
 
 ```bash
-clarinet check      # Verify Clarity 4 syntax
-clarinet test       # Run unit tests
+npm install
 ```
 
-### 3. Deploy (optional)
-
-```bash
-clarinet deploy --mainnet
-```
-
-### 4. Use the SDK
+### 3. Connect Wallet (Xverse or Leather)
 
 ```javascript
-import { HashlockClient } from 'hashlock-lending-sdk';
+await client.connectWallet({ appName: "Your App Name" });
 ```
+
+### 4. Create & Repay Loans
+
+Use `createLoan`, `repayLoan`, and `getLoanStatus` methods as shown in the Quick Start.
+
+### 5. Call Clarity Contracts
+
+- `callReadOnly` → for read-only contract functions  
+- `callPublicFunction` → for on-chain function calls
 
 ---
 
