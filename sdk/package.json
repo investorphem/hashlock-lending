@@ -7,7 +7,7 @@
     "test": "node test.js"
   },
   "keywords": ["hashlock", "lending", "stacks", "clarity", "sBTC", "SDK"],
-  "author": "Oluwafemi Olagoke",
+  "author": "investorphem",
   "license": "MIT",
   "dependencies": {
     "@stacks/transactions": "^3.0.0",
