@@ -1,0 +1,17 @@
+{
+  "name": "hashlock-lending-sdk",
+  "version": "0.1.0",
+  "description": "JavaScript SDK for interacting with HashLock Lending on Stacks mainnet",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": ["hashlock", "lending", "stacks", "clarity", "sBTC", "SDK"],
+  "author": "Oluwafemi Olagoke",
+  "license": "MIT",
+  "dependencies": {
+    "@stacks/transactions": "^3.0.0",
+    "@stacks/network": "^2.0.0",
+    "crypto-js": "^4.1.1"
+  }
+}
