@@ -1,13 +1,13 @@
 {
   "name": "hashlock-lending-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript SDK for interacting with HashLock Lending on Stacks mainnet with Xverse/Leather wallet integration",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
   },
   "keywords": ["hashlock", "lending", "stacks", "clarity", "sBTC", "SDK", "wallet", "xverse", "leather"],
-  "author": "investorphem",
+  "author": "Oluwafemi Olagoke",
   "license": "MIT",
   "dependencies": {
     "@stacks/transactions": "^3.0.0",
