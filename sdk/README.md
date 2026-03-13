@@ -1,5 +1,9 @@
 # hashlock-lending-sdk 🔒
 
+![npm](https://img.shields.io/npm/v/hashlock-lending-sdk)
+![npm downloads](https://img.shields.io/npm/dw/hashlock-lending-sdk)
+![license](https://img.shields.io/npm/l/hashlock-lending-sdk)
+
 **Yield on Bitcoin. Locked by code. Verified by hash.**
 
 The **first developer-ready JavaScript SDK** for interacting with HashLock Lending — the Bitcoin L2 lending protocol powered by Clarity 4.
