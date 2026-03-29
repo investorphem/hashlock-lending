@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
+import { TransactionHistory } from './TransactionHistory' // New Import
 import { userSession } from './lib/stacks'
 import { Toaster, toast } from 'sonner'
 import { Moon, Sun } from 'lucide-react'
@@ -58,7 +59,7 @@ export default function App() {
 
   return (
     <div className={`relative min-h-screen w-full flex flex-col items-center overflow-hidden transition-colors duration-500 ${theme} ${theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'}`}>
-      
+
       {/* --- PREMIUM BACKGROUND GLOWS --- */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className={`absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[120px] opacity-20 animate-pulse-slow ${
@@ -130,14 +131,17 @@ export default function App() {
               ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.05)] hover:border-[#00E5FF]/50' 
               : 'bg-white border-gray-100 shadow-2xl hover:border-blue-500/50'
           }`}>
-            {/* The Shimmer Effect Layer */}
             <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform pointer-events-none" />
-            
+
             <div className="relative z-10">
               {!userSession.isUserSignedIn() ? (
                 <ConnectWallet onConnect={handleConnect} theme={theme} />
               ) : (
-                <SupplyWithdraw address={address} theme={theme} />
+                <>
+                  <SupplyWithdraw address={address} theme={theme} />
+                  {/* --- NEW: TRANSACTION HISTORY INTEGRATION --- */}
+                  <TransactionHistory address={address} theme={theme} />
+                </>
               )}
             </div>
           </div>
