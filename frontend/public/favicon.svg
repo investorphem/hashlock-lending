@@ -1,0 +1,15 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: rgba(255,255,255,0.05); stroke: rgba(255,255,255,0.1); }
+      .text { fill: #00E5FF; }
+    }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #f1f5f9; stroke: #e2e8f0; }
+      .text { fill: #2563EB; }
+    }
+  </style>
+  <path class="bg" d="M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z" stroke-width="2"/>
+  <rect class="text" x="35" y="35" width="30" height="30" rx="4" />
+  <rect x="45" y="45" width="10" height="10" rx="1" fill="#00E5FF" />
+</svg>
