@@ -1,20 +1,40 @@
 {
   "name": "hashlock-lending",
   "version": "1.0.0",
+  "description": "Yield on Bitcoin. Locked by code. Verified by hash.",
+  "author": "Oluwafemi Olagoke",
+  "homepage": "https://hashlocklending.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/investorphem/hashlock-lending.git"
+  },
+  "bugs": {
+    "url": "https://github.com/investorphem/hashlock-lending/issues"
+  },
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@stacks/connect": "^7.5.0",
     "@stacks/network": "^6.9.0",
     "@stacks/transactions": "^6.13.0",
+    "lucide-react": "^0.359.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sonner": "^1.4.3"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
-    "@vitejs/plugin-react": "^4.0.0"
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.18",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3",
+    "vite": "^5.0.0"
   }
 }
