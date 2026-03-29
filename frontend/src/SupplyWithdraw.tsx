@@ -3,7 +3,8 @@ import { openContractCall } from '@stacks/connect'
 import { uintCV, contractPrincipalCV } from '@stacks/transactions'
 import { toast } from 'sonner'
 import { ArrowDownRight, ArrowUpRight, ExternalLink, ShieldCheck } from 'lucide-react'
-import { network } from './lib/stacks' // Centralized network config
+import { network } from './lib/stacks'
+import { LoadingSpinner } from './LoadingSpinner' // Ensure you created this file!
 
 const EXPLORER_URL = 'https://explorer.hiro.so/txid/' 
 const CORE = "SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-core"
@@ -16,6 +17,8 @@ interface SupplyWithdrawProps {
 
 export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps) {
   const [amount, setAmount] = useState('')
+  // Track which action is currently pending to show the correct spinner
+  const [pendingAction, setPendingAction] = useState<'supply' | 'withdraw' | null>(null)
 
   const handleTxSuccess = (txId: string, action: string) => {
     toast.success(`${action} Submitted`, {
@@ -39,7 +42,7 @@ export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps)
   const executeTx = (functionName: 'supply' | 'withdraw') => {
     if (!amount || Number(amount) <= 0) return toast.error('Enter a valid amount')
     
-    // Convert to 8-decimal fixed point for sBTC
+    setPendingAction(functionName)
     const microAmount = Math.floor(Number(amount) * 100_000_000)
 
     openContractCall({
@@ -50,8 +53,15 @@ export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps)
         ? [contractPrincipalCV(VAULT.split('.')[0], VAULT.split('.')[1]), uintCV(microAmount)]
         : [uintCV(microAmount)],
       network,
-      onFinish: (data) => handleTxSuccess(data.txId, functionName === 'supply' ? 'Supply' : 'Withdraw'),
-      onCancel: () => toast.info('Transaction Cancelled')
+      onFinish: (data) => {
+        setPendingAction(null)
+        setAmount('') // Clear input on success
+        handleTxSuccess(data.txId, functionName === 'supply' ? 'Supply' : 'Withdraw')
+      },
+      onCancel: () => {
+        setPendingAction(null)
+        toast.info('Transaction Cancelled')
+      }
     })
   }
 
@@ -83,6 +93,7 @@ export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps)
               type="number"
               placeholder="0.00" 
               value={amount} 
+              disabled={!!pendingAction}
               onChange={(e) => setAmount(e.target.value)} 
               className={`bg-transparent text-6xl font-black outline-none tracking-tighter w-full placeholder:text-slate-700 ${
                 theme === 'dark' ? 'text-white' : 'text-slate-900'
@@ -99,28 +110,36 @@ export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps)
 
       {/* Action Buttons */}
       <div className="grid grid-cols-2 gap-4">
+        {/* SUPPLY BUTTON */}
         <button 
+          disabled={!!pendingAction}
           onClick={() => executeTx('supply')}
           className={`flex justify-center items-center gap-2 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300 ${
+            pendingAction === 'supply' ? 'opacity-70 cursor-wait scale-[0.98]' : 'hover:scale-[1.02]'
+          } ${
             theme === 'dark' 
-              ? 'bg-[#00E5FF] text-[#0A1118] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] hover:scale-[1.02]' 
-              : 'bg-blue-600 text-white hover:shadow-xl hover:bg-blue-700 hover:scale-[1.02]'
+              ? 'bg-[#00E5FF] text-[#0A1118] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)]' 
+              : 'bg-blue-600 text-white hover:shadow-xl hover:bg-blue-700'
           }`}
         >
-          <ArrowDownRight size={18} />
-          Supply
+          {pendingAction === 'supply' ? <LoadingSpinner /> : <ArrowDownRight size={18} />}
+          {pendingAction === 'supply' ? 'Processing...' : 'Supply'}
         </button>
 
+        {/* WITHDRAW BUTTON */}
         <button 
+          disabled={!!pendingAction}
           onClick={() => executeTx('withdraw')}
           className={`flex justify-center items-center gap-2 py-5 rounded-2xl font-black text-sm uppercase tracking-widest border-2 transition-all duration-300 ${
+            pendingAction === 'withdraw' ? 'opacity-70 cursor-wait scale-[0.98]' : 'hover:scale-[1.02]'
+          } ${
             theme === 'dark' 
               ? 'bg-transparent text-white border-white/10 hover:border-[#00E5FF] hover:text-[#00E5FF] hover:bg-[#00E5FF]/5' 
               : 'bg-white text-slate-900 border-slate-200 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50'
           }`}
         >
-          <ArrowUpRight size={18} />
-          Withdraw
+          {pendingAction === 'withdraw' ? <LoadingSpinner /> : <ArrowUpRight size={18} />}
+          {pendingAction === 'withdraw' ? 'Processing...' : 'Withdraw'}
         </button>
       </div>
 
