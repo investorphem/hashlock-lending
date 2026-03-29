@@ -1,9 +1,18 @@
+# ==========================================
+# HASHLOCK LENDING: MAINNET CONFIGURATION
+# ==========================================
+
 [network]
 name = "mainnet"
+# Explicitly defining the premium Hiro API endpoint ensures your 
+# deployment transactions route through the most reliable node.
+node_rpc_url = "https://api.hiro.so" 
 
 [accounts.deployer]
-mnemonic = "your twelve word seed phrase here"  # ← change this!
+# SECURITY FIX: This tells Clarinet to look for a variable named 
+# DEPLOYER_MNEMONIC in your computer's environment or a .env file.
+mnemonic = "${DEPLOYER_MNEMONIC}"
 balance = 100_000_000_000
 
 [accounts.wallet_1]
-mnemonic = "second wallet if needed"
+mnemonic = "${WALLET_1_MNEMONIC}"
