@@ -23,3 +23,14 @@
     (get-reserve () (response uint uint))
   )
 )
+
+;; ==========================================
+;; HASHLOCK FLASH LOAN RECEIVER TRAIT (ADDITION)
+;; ==========================================
+;; Defines the callback interface for the flash loan borrower.
+;; Centralized here so all protocol templates share one source of truth.
+(define-trait flash-loan-receiver-trait
+  (
+    (execute (uint) (response bool uint))
+  )
+)
