@@ -2,43 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 1. Force the container to fill the entire device screen */
+html, 
+body, 
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* Prevents horizontal "wobble" on mobile */
+  overflow-x: hidden; 
+}
+
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  /* Premium Dark Mode Colors */
+  
+  /* This allows the browser to respect our manual theme toggle */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0A1118;
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* 2. Remove 'display: flex' from body to prevent layout shifting */
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
   @apply transition-colors duration-500;
+  /* Background color is now handled by App.tsx classes */
 }
 
-/* Custom Scrollbar for that Premium Web3 feel */
+/* 3. Premium Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A1118;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #1A202C;
   border-radius: 10px;
-  border: 2px solid #0A1118;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #00E5FF;
+.dark ::-webkit-scrollbar-thumb {
+  background: #00E5FF33;
+  border: 2px solid #0A1118;
 }
