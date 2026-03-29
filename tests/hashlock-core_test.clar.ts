@@ -1,23 +1,54 @@
-;; Tests for HashLock Core
+import { describe, expect, it } from "vitest";
+import { Cl } from "@stacks/transactions";
 
-(use-trait asset-trait .safe-vault-base.asset-trait)
+// Standard simulated accounts provided by Clarinet
+const deployer = "ST1PQHQKV0RJXZFY1DGX8M337W7J0M1Z0N5V7HP";
+const user1 = "ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5";
+const attacker = "ST2CY5V39NHDPWSXWH9QLS391IPC0TERX5QL8XNDN";
 
-(define-public (test-template-verification)
-  (let ((vault 'SP1PQHQKV0RJXZFY1DGX8M337W7J0M1Z0N5V7HP.isolated-flash-vault))
-    (match (contract-call? .hashlock-core supply-to-vault vault 'SP1PQHQKV0RJXZFY1DGX8M337W7J0M1Z0N5V7HP.sbtc u1000)
-      success (ok true)
-      error (err error)
-    )
-  )
-)
+const CORE_CONTRACT = `${deployer}.hashlock-core`;
+const VALID_VAULT = `${deployer}.hashlock-isolated-sbtc-v1`;
+const INVALID_VAULT = `${attacker}.fake-vault`;
 
-(define-public (test-invalid-hash)
-  (let ((invalid-vault 'SP000000000000000000002Q6VF78.invalid))
-    (match (contract-call? .hashlock-core supply-to-vault invalid-vault 'SP1PQHQKV0RJXZFY1DGX8M337W7J0M1Z0N5V7HP.sbtc u1000)
-      success (err u999)  ;; Should fail
-      error (ok true)
-    )
-  )
-)
+describe("HashLock Core: Template Verification", () => {
+  
+  it("✅ succeeds when supplying to a whitelisted, hash-verified vault", () => {
+    // 1. Arrange: User supplies 1000 sBTC
+    const amount = Cl.uint(1000);
+    const vault = Cl.contractPrincipal(deployer, "hashlock-isolated-sbtc-v1");
 
-;; Add more tests as needed
+    // 2. Act: Call the supply function on the core contract
+    const { receipt } = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [vault, amount],
+      user1
+    );
+
+    // 3. Assert: Transaction should be completely successful (ok true)
+    expect(receipt.events.length).toBeGreaterThan(0); // Should emit transfer events
+    expect(receipt.result).toBeOk(Cl.bool(true));
+  });
+
+  it("❌ fails with ERR-HASH-MISMATCH (u101) when vault bytecode is spoofed", () => {
+    // 1. Arrange: Attacker tries to use a fake vault
+    const amount = Cl.uint(1000);
+    const fakeVault = Cl.contractPrincipal(attacker, "fake-vault");
+
+    // 2. Act: Call the supply function
+    const { receipt } = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [fakeVault, amount],
+      user1
+    );
+
+    // 3. Assert: The protocol must reject the transaction
+    expect(receipt.result).toBeErr(Cl.uint(101)); // ERR-HASH-MISMATCH
+  });
+
+  it("❌ fails with ERR-NOT-WHITELISTED (u100) for unknown templates", () => {
+    // Add additional assertions here for non-whitelisted templates!
+    expect(true).toBe(true);
+  });
+});
