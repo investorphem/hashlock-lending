@@ -7,7 +7,28 @@ import { Moon, Sun } from 'lucide-react'
 
 export default function App() {
   const [address, setAddress] = useState<string>('')
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark') // Default to premium dark mode
+  
+  // 1. Initialize state from localStorage or system preference
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    const saved = localStorage.getItem('hashlock-theme');
+    if (saved === 'dark' || saved === 'light') return saved;
+    
+    // Optional: Default to system preference if nothing is saved
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  })
+
+  // 2. Persist theme choice and update the DOM
+  useEffect(() => {
+    const root = window.document.documentElement;
+    
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    
+    localStorage.setItem('hashlock-theme', theme);
+  }, [theme]);
 
   // Hydrate session on load
   useEffect(() => {
@@ -23,13 +44,12 @@ export default function App() {
     userSession.signUserOut('/')
     setAddress('')
     toast('Wallet Disconnected', {
-      className: theme === 'dark' ? 'bg-[#1A202C] text-white border-gray-700' : '',
+      className: theme === 'dark' ? 'bg-[#1A202C] text-white border-gray-700' : 'bg-white text-black',
     })
   }
 
   const handleConnect = (addr: string) => {
     setAddress(addr)
-    // Premium Success Toast using the "Verification Green"
     toast.success('Wallet Connected', {
       icon: '🔒',
       style: { 
@@ -41,9 +61,9 @@ export default function App() {
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'}`}>
-      
-      {/* Premium Pop-up Notifications */}
+    // We use the 'dark' class here as well for Tailwind nested styling
+    <div className={`min-h-screen transition-colors duration-500 ${theme} ${theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'}`}>
+
       <Toaster 
         position="top-right" 
         theme={theme}
@@ -53,11 +73,10 @@ export default function App() {
       />
 
       <div className="max-w-5xl mx-auto px-6 py-8">
-        
+
         {/* Navigation / Header */}
         <header className="flex justify-between items-center mb-20">
           <div className="flex items-center gap-3">
-            {/* Logo Geometric Shape Representation */}
             <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#00E5FF] to-blue-600 shadow-[0_0_20px_rgba(0,229,255,0.3)]">
               <span className="text-white font-bold text-xl">H</span>
             </div>
@@ -100,7 +119,6 @@ export default function App() {
             The world’s first lending protocol that cryptographically guarantees every vault is an exact, audited, immutable template.
           </p>
 
-          {/* Core App Interface (Glassmorphism Card) */}
           <div className={`w-full max-w-md p-8 rounded-3xl border backdrop-blur-xl transition-all duration-500 ${
             theme === 'dark' 
               ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.05)]' 
@@ -114,7 +132,6 @@ export default function App() {
           </div>
         </main>
 
-        {/* Footer */}
         <footer className="mt-32 text-center pb-8">
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase ${
             theme === 'dark' ? 'bg-white/5 text-gray-400' : 'bg-black/5 text-gray-500'
