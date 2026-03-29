@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
-import { TransactionHistory } from './TransactionHistory' // New Import
+import { TransactionHistory } from './TransactionHistory'
 import { userSession } from './lib/stacks'
 import { Toaster, toast } from 'sonner'
 import { Moon, Sun } from 'lucide-react'
@@ -58,10 +58,17 @@ export default function App() {
   }
 
   return (
-    <div className={`relative min-h-screen w-full flex flex-col items-center overflow-hidden transition-colors duration-500 ${theme} ${theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'}`}>
+    /* LAYOUT FIX 1: 'w-screen' + 'items-center'
+      Forces the background to span the full width of the mobile browser and centers all children.
+    */
+    <div className={`relative min-h-screen w-screen flex flex-col items-center overflow-x-hidden transition-colors duration-500 ${theme} ${
+      theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'
+    }`}>
 
-      {/* --- PREMIUM BACKGROUND GLOWS --- */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      {/* LAYOUT FIX 2: 'fixed' + 'inset-0' 
+        Ensures background glows fill the screen regardless of content height.
+      */}
+      <div className="fixed inset-0 pointer-events-none z-0">
         <div className={`absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[120px] opacity-20 animate-pulse-slow ${
           theme === 'dark' ? 'bg-[#00E5FF]' : 'bg-blue-400'
         }`} />
@@ -78,10 +85,13 @@ export default function App() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-5xl px-6 py-8 flex-grow flex flex-col">
+      {/* LAYOUT FIX 3: 'items-center' + 'mx-auto'
+        Explicitly centers the container and its content.
+      */}
+      <div className="relative z-10 w-full max-w-5xl px-6 py-8 flex-grow flex flex-col items-center mx-auto">
 
         {/* Navigation / Header */}
-        <header className="flex justify-between items-center mb-12 md:mb-20">
+        <header className="flex justify-between items-center w-full mb-12 md:mb-20">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#00E5FF] to-blue-600 shadow-cyan-glow">
               <span className="text-white font-bold text-xl">H</span>
@@ -114,14 +124,14 @@ export default function App() {
         </header>
 
         {/* Hero Section */}
-        <main className="flex-grow flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
+        <main className="flex-grow flex flex-col items-center justify-center text-center w-full max-w-3xl">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
             Yield on Bitcoin. <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-500">
               Locked by code.
             </span>
           </h2>
-          <p className={`text-lg md:text-xl mb-12 max-w-2xl ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p className={`text-base md:text-xl mb-12 max-w-2xl px-4 mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
             The world’s first lending protocol that cryptographically guarantees every vault is an exact, audited, immutable template.
           </p>
 
@@ -139,7 +149,6 @@ export default function App() {
               ) : (
                 <>
                   <SupplyWithdraw address={address} theme={theme} />
-                  {/* --- NEW: TRANSACTION HISTORY INTEGRATION --- */}
                   <TransactionHistory address={address} theme={theme} />
                 </>
               )}
@@ -148,7 +157,7 @@ export default function App() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-20 text-center pb-8">
+        <footer className="w-full mt-20 text-center pb-8">
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase ${
             theme === 'dark' ? 'bg-white/5 text-gray-400' : 'bg-black/5 text-gray-500'
           }`}>
