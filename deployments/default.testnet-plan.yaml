@@ -5,4 +5,33 @@ network: testnet
 stacks-node: "https://stacks-node-api.testnet.stacks.co"
 bitcoin-node: "http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332"
 plan:
-  batches: []
+  batches:
+    # BATCH 1: The Foundation (Traits & Errors)
+    - id: 1
+      transactions:
+        - contract-publish:
+            contract-name: safe-vault-base
+            expected-sender: ST_YOUR_TESTNET_ADDRESS_HERE
+            cost: 10000
+            path: contracts/safe-vault-base.clar
+            anchor-block-only: true
+
+    # BATCH 2: The Core Routing Engine (Requires BATCH 1 traits)
+    - id: 2
+      transactions:
+        - contract-publish:
+            contract-name: hashlock-core
+            expected-sender: ST_YOUR_TESTNET_ADDRESS_HERE
+            cost: 10000
+            path: contracts/hashlock-core.clar
+            anchor-block-only: true
+
+    # BATCH 3: The Isolated Vaults (Requires Core)
+    - id: 3
+      transactions:
+        - contract-publish:
+            contract-name: hashlock-isolated-sbtc-v1
+            expected-sender: ST_YOUR_TESTNET_ADDRESS_HERE
+            cost: 10000
+            path: contracts/hashlock-isolated-sbtc-v1.clar
+            anchor-block-only: true
