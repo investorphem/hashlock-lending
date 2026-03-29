@@ -7,26 +7,22 @@ import { Moon, Sun } from 'lucide-react'
 
 export default function App() {
   const [address, setAddress] = useState<string>('')
-  
+
   // 1. Initialize state from localStorage or system preference
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('hashlock-theme');
     if (saved === 'dark' || saved === 'light') return saved;
-    
-    // Optional: Default to system preference if nothing is saved
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
 
   // 2. Persist theme choice and update the DOM
   useEffect(() => {
     const root = window.document.documentElement;
-    
     if (theme === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
-    
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
 
@@ -61,8 +57,17 @@ export default function App() {
   }
 
   return (
-    // We use the 'dark' class here as well for Tailwind nested styling
-    <div className={`min-h-screen transition-colors duration-500 ${theme} ${theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'}`}>
+    <div className={`relative min-h-screen w-full flex flex-col items-center overflow-hidden transition-colors duration-500 ${theme} ${theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'}`}>
+      
+      {/* --- PREMIUM BACKGROUND GLOWS --- */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div className={`absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[120px] opacity-20 animate-pulse-slow ${
+          theme === 'dark' ? 'bg-[#00E5FF]' : 'bg-blue-400'
+        }`} />
+        <div className={`absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full blur-[150px] opacity-10 animate-pulse-slow ${
+          theme === 'dark' ? 'bg-blue-600' : 'bg-cyan-200'
+        }`} style={{ animationDelay: '2s' }} />
+      </div>
 
       <Toaster 
         position="top-right" 
@@ -72,12 +77,12 @@ export default function App() {
         }}
       />
 
-      <div className="max-w-5xl mx-auto px-6 py-8">
+      <div className="relative z-10 w-full max-w-5xl px-6 py-8 flex-grow flex flex-col">
 
         {/* Navigation / Header */}
-        <header className="flex justify-between items-center mb-20">
+        <header className="flex justify-between items-center mb-12 md:mb-20">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#00E5FF] to-blue-600 shadow-[0_0_20px_rgba(0,229,255,0.3)]">
+            <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#00E5FF] to-blue-600 shadow-cyan-glow">
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <h1 className="text-2xl font-extrabold tracking-tight">HashLock</h1>
@@ -97,7 +102,7 @@ export default function App() {
                 onClick={handleSignOut}
                 className={`text-sm font-semibold px-4 py-2 rounded-lg border transition-all duration-300 ${
                   theme === 'dark' 
-                    ? 'border-gray-700 hover:border-[#00E5FF] hover:text-[#00E5FF] hover:shadow-[0_0_10px_rgba(0,229,255,0.2)]' 
+                    ? 'border-gray-700 hover:border-[#00E5FF] hover:text-[#00E5FF] hover:shadow-cyan-glow' 
                     : 'border-gray-300 hover:border-blue-600 hover:text-blue-600'
                 }`}
               >
@@ -108,7 +113,7 @@ export default function App() {
         </header>
 
         {/* Hero Section */}
-        <main className="flex flex-col items-center text-center max-w-3xl mx-auto">
+        <main className="flex-grow flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
             Yield on Bitcoin. <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-500">
@@ -119,20 +124,27 @@ export default function App() {
             The world’s first lending protocol that cryptographically guarantees every vault is an exact, audited, immutable template.
           </p>
 
-          <div className={`w-full max-w-md p-8 rounded-3xl border backdrop-blur-xl transition-all duration-500 ${
+          {/* Glassmorphism Card with Hover Shine */}
+          <div className={`relative overflow-hidden group w-full max-w-md p-8 rounded-3xl border backdrop-blur-xl transition-all duration-500 mx-auto ${
             theme === 'dark' 
-              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.05)]' 
-              : 'bg-white border-gray-100 shadow-2xl'
+              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.05)] hover:border-[#00E5FF]/50' 
+              : 'bg-white border-gray-100 shadow-2xl hover:border-blue-500/50'
           }`}>
-            {!userSession.isUserSignedIn() ? (
-              <ConnectWallet onConnect={handleConnect} theme={theme} />
-            ) : (
-              <SupplyWithdraw address={address} theme={theme} />
-            )}
+            {/* The Shimmer Effect Layer */}
+            <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform pointer-events-none" />
+            
+            <div className="relative z-10">
+              {!userSession.isUserSignedIn() ? (
+                <ConnectWallet onConnect={handleConnect} theme={theme} />
+              ) : (
+                <SupplyWithdraw address={address} theme={theme} />
+              )}
+            </div>
           </div>
         </main>
 
-        <footer className="mt-32 text-center pb-8">
+        {/* Footer */}
+        <footer className="mt-20 text-center pb-8">
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase ${
             theme === 'dark' ? 'bg-white/5 text-gray-400' : 'bg-black/5 text-gray-500'
           }`}>
