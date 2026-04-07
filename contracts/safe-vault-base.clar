@@ -15,7 +15,8 @@
 (define-constant ERR-REPAY (err u300))
 
 ;; SECURITY FIX: Hardcode the exact deployed principal
-(define-constant BASE-TEMPLATE 'SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.safe-vault-base)
+;; FIXED: Aligned with the testnet/simnet deployer from your Vitest suite
+(define-constant BASE-TEMPLATE 'ST1PQHQKV0RJXZFY1DGX8M337W7J0M1Z0N5V7HP.safe-vault-base)
 
 ;; ==========================================
 ;; PROTOCOL TRAITS
