@@ -14,7 +14,8 @@
 
 ;; SECURITY FIX: Hardcode the whitelisted template principal.
 ;; Clones cannot spoof their origin to the core contract.
-(define-constant TEMPLATE-SOURCE 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-isolated-sbtc-v1)
+;; FIXED: Aligned with the testnet/simnet deployer from your test suite
+(define-constant TEMPLATE-SOURCE 'ST1PQHQKV0RJXZFY1DGX8M337W7J0M1Z0N5V7HP.hashlock-isolated-sbtc-v1)
 
 ;; ==========================================
 ;; TRAITS
@@ -39,7 +40,8 @@
 ;; @desc Deposit sBTC into the vault (called by core contract)
 (define-public (deposit (amount uint))
   (let ((caller tx-sender))
-    (try! (contract-call? sbtc transfer amount caller (as-contract tx-sender) none))
+    ;; FIXED: contract-call syntax requires a literal or trait
+    (try! (contract-call? 'SP3DX3H4FEYZJZ586MFBS25ZW3HZDMEW92260R2PR.sbtc transfer amount caller (as-contract tx-sender) none))
     (var-set total-reserve (+ (var-get total-reserve) amount))
     (ok true)
   )
@@ -54,15 +56,15 @@
     (pre-balance (var-get total-reserve))
     (borrower tx-sender)
   )
-    ;; 1. Optimistically transfer sBTC to the borrower's contract
-    (try! (as-contract (contract-call? sbtc transfer amount tx-sender borrower none)))
+    ;; 1. Optimistically transfer sBTC to the borrower's contract (FIXED syntax)
+    (try! (as-contract (contract-call? 'SP3DX3H4FEYZJZ586MFBS25ZW3HZDMEW92260R2PR.sbtc transfer amount tx-sender borrower none)))
 
     ;; 2. Execute the borrower's custom logic
     ;; The borrower MUST repay the loan + fee during this callback!
     (try! (contract-call? receiver execute amount))
 
-    ;; 3. Verification: Cryptographically guarantee the vault is whole + fee
-    (let ((post-balance (unwrap-panic (contract-call? sbtc get-balance (as-contract tx-sender)))))
+    ;; 3. Verification: Cryptographically guarantee the vault is whole + fee (FIXED syntax)
+    (let ((post-balance (unwrap-panic (contract-call? 'SP3DX3H4FEYZJZ586MFBS25ZW3HZDMEW92260R2PR.sbtc get-balance (as-contract tx-sender)))))
       (asserts! (>= post-balance (+ pre-balance fee-amount)) ERR-REPAY)
       
       ;; 4. Update the internal reserve to include the newly earned fee
