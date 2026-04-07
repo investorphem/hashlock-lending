@@ -1,0 +1,149 @@
+import { describe, expect, it } from "vitest";
+import { Cl } from "@stacks/transactions";
+
+// Standard simulated accounts provided by Clarinet
+const deployer = "ST1PQHQKV0RJXZFY1DGX8M337W7J0M1Z0N5V7HP";
+const user1 = "ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5";
+const user2 = "ST2NEB84ASENDXKYGCEEYLFKTEJ86BZA82QDA8A1X"; // Added a second user for state testing
+const attacker = "ST2CY5V39NHDPWSXWH9QLS391IPC0TERX5QL8XNDN";
+
+const CORE_CONTRACT = `${deployer}.hashlock-core`;
+const VALID_VAULT = `${deployer}.hashlock-isolated-sbtc-v1`;
+const INVALID_VAULT = `${attacker}.fake-vault`;
+
+describe("HashLock Core: Template Verification", () => {
+  
+  it("✅ succeeds when supplying to a whitelisted, hash-verified vault", () => {
+    // 1. Arrange: User supplies 1000 sBTC
+    const amount = Cl.uint(1000);
+    const vault = Cl.contractPrincipal(deployer, "hashlock-isolated-sbtc-v1");
+
+    // 2. Act: Call the supply function on the core contract
+    const receipt = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [vault, amount],
+      user1
+    );
+
+    // 3. Assert: Transaction should be completely successful (ok true)
+    expect(receipt.events.length).toBeGreaterThan(0); // Should emit transfer events
+    expect(receipt.result).toBeOk(Cl.bool(true));
+  });
+
+  it("❌ fails with ERR-HASH-MISMATCH (u101) when vault bytecode is spoofed", () => {
+    // 1. Arrange: Attacker tries to use a fake vault
+    const amount = Cl.uint(1000);
+    const fakeVault = Cl.contractPrincipal(attacker, "fake-vault");
+
+    // 2. Act: Call the supply function
+    const receipt = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [fakeVault, amount],
+      user1
+    );
+
+    // 3. Assert: The protocol must reject the transaction
+    expect(receipt.result).toBeErr(Cl.uint(101)); // ERR-HASH-MISMATCH
+  });
+
+  it("❌ fails with ERR-NOT-WHITELISTED (u100) for unknown templates", () => {
+    // 1. Arrange: Try to use a completely unknown vault template
+    const amount = Cl.uint(1000);
+    const unknownVault = Cl.contractPrincipal(user1, "random-unknown-vault");
+
+    // 2. Act: Call the supply function
+    const receipt = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [unknownVault, amount],
+      user1
+    );
+
+    // 3. Assert: The protocol must reject with ERR-NOT-WHITELISTED
+    expect(receipt.result).toBeErr(Cl.uint(100)); // ERR-NOT-WHITELISTED
+  });
+});
+
+describe("HashLock Core: Edge Cases & State", () => {
+  
+  it("❌ fails with ERR-ZERO-AMOUNT (u102) when supplying 0 sBTC", () => {
+    // 1. Arrange: User attempts to supply 0 sBTC
+    const amount = Cl.uint(0);
+    const vault = Cl.contractPrincipal(deployer, "hashlock-isolated-sbtc-v1");
+
+    // 2. Act: Call the supply function
+    const receipt = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [vault, amount],
+      user1
+    );
+
+    // 3. Assert: The protocol must reject with ERR-ZERO-AMOUNT
+    expect(receipt.result).toBeErr(Cl.uint(102));
+  });
+
+  it("❌ fails with ERR-ZERO-AMOUNT (u102) when attempting to overdraw balance", () => {
+    // 1. Arrange: User supplies 500 sBTC first
+    const supplyAmount = Cl.uint(500);
+    const vault = Cl.contractPrincipal(deployer, "hashlock-isolated-sbtc-v1");
+
+    // Execute the supply transaction to build a balance
+    simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [vault, supplyAmount],
+      user1
+    );
+
+    // 2. Act: User attempts to withdraw 1000 sBTC (double their balance)
+    const withdrawAmount = Cl.uint(1000);
+    const receipt = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "withdraw",
+      [withdrawAmount],
+      user1
+    );
+
+    // 3. Assert: The protocol must reject the overdraft
+    expect(receipt.result).toBeErr(Cl.uint(102));
+  });
+
+  it("✅ accurately tracks multiple user balances and total supplied", () => {
+    const vault = Cl.contractPrincipal(deployer, "hashlock-isolated-sbtc-v1");
+    
+    // 1. Arrange & Act: User 1 supplies 1000, User 2 supplies 500
+    simnet.callPublicFn(CORE_CONTRACT.split('.')[1], "supply", [vault, Cl.uint(1000)], user1);
+    simnet.callPublicFn(CORE_CONTRACT.split('.')[1], "supply", [vault, Cl.uint(500)], user2);
+
+    // 2. Assert: Check User 1 balance
+    const user1Balance = simnet.callReadOnlyFn(
+      CORE_CONTRACT.split('.')[1],
+      "get-balance",
+      [Cl.principal(user1)],
+      user1
+    );
+    expect(user1Balance.result).toEqual(Cl.uint(1000));
+
+    // 3. Assert: Check User 2 balance
+    const user2Balance = simnet.callReadOnlyFn(
+      CORE_CONTRACT.split('.')[1],
+      "get-balance",
+      [Cl.principal(user2)],
+      user2
+    );
+    expect(user2Balance.result).toEqual(Cl.uint(500));
+
+    // 4. Assert: Check Total Supplied
+    const totalSupplied = simnet.callReadOnlyFn(
+      CORE_CONTRACT.split('.')[1],
+      "get-total-supplied",
+      [],
+      user1
+    );
+    expect(totalSupplied.result).toEqual(Cl.uint(1500));
+  });
+
+});
