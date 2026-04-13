@@ -7,7 +7,7 @@ import { Toaster, toast } from 'sonner'
 import { Moon, Sun } from 'lucide-react'
 
 export default function App() {
-  const [address, setAddress] = useState<string>('')
+  const [address, setAddress] = useState<string>'')
 
   // 1. Initialize state from localStorage or system preference
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
