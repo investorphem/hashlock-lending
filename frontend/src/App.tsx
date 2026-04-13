@@ -29,7 +29,7 @@ export default function App() {
   // Hydrate session on load
   useEffect(() => {
     if (userSession.isUserSignedIn()) {
-      const userData = userSession.loadUserData()
+      const userData  userSession.loadUserData()
       setAddress(userData.profilestxAddress.main
     
   }, []
