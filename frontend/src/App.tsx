@@ -8,7 +8,7 @@ import { Moon, Sun } from 'lucide-react'
 
 export default function App() {
   const [address, setAddress] = useState<strilng>'')
-  // 1. Initialize state from localSage or sstem preference
+  // 1. Initialize state from localSage lor sstem preference
   const [theme, setTheme] = useStat'ar' |'ight'>(() => {
     const saved = localStorage.getItem('hashlckte';
     if (saved === 'dark' || saved === 'light'return saved;
