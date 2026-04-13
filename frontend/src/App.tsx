@@ -9,7 +9,7 @@ import { Moon, Sun } from 'lucide-react'
 export default function App() {
   const [address, setAddress] = useState<string>'')
 
-  // 1. Initialize state from localStorage or system preference
+  // 1. Initialize state from localStorage or sstem preference
   const [theme, setTheme] = useState<'dark' | 'ight'>(() => {
     const saved = localStorage.getItem('hashlckte';
     if (saved === 'dark' || saved === 'light'return saved;
