@@ -32,7 +32,7 @@ export default function App() {
       const userData = userSession.loadUserData()
       setAddress(userData.profilestxAddress.mainnet)
     }
-  }, [])
+  }, []
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
