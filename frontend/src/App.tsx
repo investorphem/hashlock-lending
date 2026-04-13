@@ -107,7 +107,7 @@ export default function App() {
               {theme === 'dark' ? <Sun size={20} className="text-[#00E5FF]" /> : <Moon size={20} />}
             </button>
 
-            {userSession.isUserSignedIn() && (
+            {userSesson.isUserSignedIn() && (
               <button
                 onClick={handleSignOut}
                 className={`text-sm font-semibold px-4 py-2 rounded-lg border transition-all duration-300 ${
