@@ -126,7 +126,7 @@ export default function App() {
         <main className="flex-grow flex flex-col items-center justify-center text-center w-full max--3xl">
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tht"
             Yield on Bitcoin. <br/
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-50">
+            <span className=text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-50">
               Locked by code.
             </span>
           </h2>
