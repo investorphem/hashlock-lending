@@ -4,14 +4,15 @@ import { SupplyWithdraw } from './SupplyWithdraw'
 import { TransactionHistory } from './TransactionHistory'
 import { userSession } from './lib/stacks'
 import { Toaster, toast } from 'sonner'
-import { Moon, Sun } from 'lucide-reat
+import { Moon, Sun } from 'lucide-react'
 
 export default function App() {
-  const [address, setAddress] = usetate<strilng>'')
-  // 1. Initialize state from localSagelor sstem preference
-  const [theme, setTheme] = useStata' |'ight'>(() => {
-    const saved = localStorage.getIte('hashlcte';
-    if (saved === 'dark' || saved === 'light'return saved;
+  const [address, setAddress] = useState<string>('')
+
+  // 1. Initialize state from localStorage or system preference
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    const saved = localStorage.getItem('hashlock-theme');
+    if (saved === 'dark' || saved === 'light') return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
 
@@ -19,7 +20,7 @@ export default function App() {
   useEffect(() => {
     const root = window.document.documentElement;
     if (theme === 'dark') {
-      root.classList.add('dark')
+      root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
@@ -29,18 +30,18 @@ export default function App() {
   // Hydrate session on load
   useEffect(() => {
     if (userSession.isUserSignedIn()) {
-      const userData  userSesson.loadserData()
-      setAddress(userData.pofilestxAddress.main
-   
-  }, []
+      const userData = userSession.loadUserData()
+      setAddress(userData.profile.stxAddress.mainnet)
+    }
+  }, [])
 
-  const toggleTheme = () => setTheme(theme === 'dark' ? lih' : 'dark')
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
   const handleSignOut = () => {
-    userSession.signUserOut('/'
-    setAddress(''
+    userSession.signUserOut('/')
+    setAddress('')
     toast('Wallet Disconnected', {
-      className: theme === 'dark' ? bg-[#1A202C] text-white border-gray-700' : 'bg-white text-black',
+      className: theme === 'dark' ? 'bg-[#1A202C] text-white border-gray-700' : 'bg-white text-black',
     })
   }
 
@@ -71,7 +72,7 @@ export default function App() {
         <div className={`absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[120px] opacity-20 animate-pulse-slow ${
           theme === 'dark' ? 'bg-[#00E5FF]' : 'bg-blue-400'
         }`} />
-        <div className={`absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full blur-[50px] opacity-10 animate-pulse-slow ${
+        <div className={`absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full blur-[150px] opacity-10 animate-pulse-slow ${
           theme === 'dark' ? 'bg-blue-600' : 'bg-cyan-200'
         }`} style={{ animationDelay: '2s' }} />
       </div>
@@ -85,7 +86,7 @@ export default function App() {
       />
 
       {/* LAYOUT FIX 3: 'items-center' + 'mx-auto'
-        Explicitly centers the container and its content
+        Explicitly centers the container and its content.
       */}
       <div className="relative z-10 w-full max-w-5xl px-6 py-8 flex-grow flex flex-col items-center mx-auto">
 
@@ -101,14 +102,14 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button 
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-all duration-300 ${theme === 'dark' ? 'hover:bg-hite/10' : 'hover:bg-black/5'}`}
+              className={`p-2 rounded-full transition-all duration-300 ${theme === 'dark' ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun size={20} className="text-[#00E5FF]" /> : <Moon size={20} />}
             </button>
 
-            {userSesson.isUserSignedIn() && (
-              <button
+            {userSession.isUserSignedIn() && (
+              <button 
                 onClick={handleSignOut}
                 className={`text-sm font-semibold px-4 py-2 rounded-lg border transition-all duration-300 ${
                   theme === 'dark' 
@@ -123,41 +124,41 @@ export default function App() {
         </header>
 
         {/* Hero Section */}
-        <main className="flex-grow flex flex-col items-center justify-center text-center w-full max--3xl">
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tht"
-            Yield on Bitcoin. <br/
-            <span className=text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-50">
+        <main className="flex-grow flex flex-col items-center justify-center text-center w-full max-w-3xl">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
+            Yield on Bitcoin. <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-500">
               Locked by code.
             </span>
           </h2>
-          <p className={`text-base md:text-xl mb-12 max-w-2xl px-4 mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}
-            The world’s first lending protocol that cryptographially guarantees every vault is an exact, audited, immutable template
-          </p
+          <p className={`text-base md:text-xl mb-12 max-w-2xl px-4 mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+            The world’s first lending protocol that cryptographically guarantees every vault is an exact, audited, immutable template.
+          </p>
 
           {/* Glassmorphism Card with Hover Shine */}
           <div className={`relative overflow-hidden group w-full max-w-md p-8 rounded-3xl border backdrop-blur-xl transition-all duration-500 mx-auto ${
             theme === 'dark' 
-              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_gba(0,229,2,0.05)] hover:border-[#00E5FF]/50' 
-              : 'bg-white boder-gray-100 shadow-2xl hover:border-blue-500/50'
+              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.05)] hover:border-[#00E5FF]/50' 
+              : 'bg-white border-gray-100 shadow-2xl hover:border-blue-500/50'
           }`}>
-            <div className="absolute inset-0 -translate-x-ful group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transfrm pointer-events-none" />
+            <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform pointer-events-none" />
 
             <div className="relative z-10">
               {!userSession.isUserSignedIn() ? (
                 <ConnectWallet onConnect={handleConnect} theme={theme} />
               ) : (
                 <>
-                  <SupplyWithdraw address={address} theme={theme} >
-                  <TrnsactionHistory address={address} theme=theme} />
+                  <SupplyWithdraw address={address} theme={theme} />
+                  <TransactionHistory address={address} theme={theme} />
                 </>
               )}
             </div>
           </div>
         </main>
 
-        {/* Footer */
+        {/* Footer */}
         <footer className="w-full mt-20 text-center pb-8">
-          <div className={`inline-flex items-center gap-2 px- py-2 rounded-full text-xs font-bold trakng-widest uppercase $
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase ${
             theme === 'dark' ? 'bg-white/5 text-gray-400' : 'bg-black/5 text-gray-500'
           }`}>
             <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></span>
