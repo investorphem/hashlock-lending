@@ -30,7 +30,7 @@ export default function App() {
   useEffect(() => {
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserData()
-      setAddress(userData.profile.stxAddress.mainnet)
+      setAddress(userData.profilestxAddress.mainnet)
     }
   }, [])
 
