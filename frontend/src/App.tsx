@@ -108,7 +108,7 @@ export default function App() {
             </button>
 
             {userSession.isUserSignedIn() && (
-              <button 
+              <button
                 onClick={handleSignOut}
                 className={`text-sm font-semibold px-4 py-2 rounded-lg border transition-all duration-300 ${
                   theme === 'dark' 
