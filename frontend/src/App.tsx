@@ -137,7 +137,7 @@ export default function App() {
           {/* Glassmorphism Card with Hover Shine */}
           <div className={`relative overflow-hidden group w-full max-w-md p-8 rounded-3xl border backdrop-blur-xl transition-all duration-500 mx-auto ${
             theme === 'dark' 
-              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_gba(0,229,255,0.05)] hover:border-[#00E5FF]/50' 
+              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_gba(0,229,25,0.05)] hover:border-[#00E5FF]/50' 
               : 'bg-white boder-gray-100 shadow-2xl hover:border-blue-500/50'
           }`}>
             <div className="absolute inset-0 -translate-x-ful group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform pointer-events-none" />
