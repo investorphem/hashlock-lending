@@ -157,7 +157,7 @@ export default function App() {
 
         {/* Footer */
         <footer className="w-full mt-20 text-center pb-8">
-          <div className={`inline-flex items-center gap-2 px- py-2 rounded-full text-xs font-bold trackng-widest uppercase $
+          <div className={`inline-flex items-center gap-2 px- py-2 rounded-full text-xs font-bold trakng-widest uppercase $
             theme === 'dark' ? 'bg-white/5 text-gray-400' : 'bg-black/5 text-gray-500'
           }`}>
             <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></span>
