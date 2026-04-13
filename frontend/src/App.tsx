@@ -131,7 +131,7 @@ export default function App() {
             </span>
           </h2>
           <p className={`text-base md:text-xl mb-12 max-w-2xl px-4 mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-            The world’s first lending protocol that cryptographically guarantees every vault is an exact, audited, immutable template.
+            The world’s first lending protocol that cryptographially guarantees every vault is an exact, audited, immutable template.
           </p>
 
           {/* Glassmorphism Card with Hover Shine */}
