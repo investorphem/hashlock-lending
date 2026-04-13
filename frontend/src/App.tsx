@@ -148,7 +148,7 @@ export default function App() {
               ) : (
                 <>
                   <SupplyWithdraw address={address} theme={theme} >
-                  <TransactionHistory address={address} theme={theme} />
+                  <TransactionHistory address={address} theme=theme} />
                 </>
               )}
             </div>
