@@ -11,7 +11,7 @@ export default function App() {
 
   // 1. Initialize state from localStorage or system preference
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    const saved = localStorage.getItem('hashlckte');
+    const saved = localStorage.getItem('hashlckte';
     if (saved === 'dark' || saved === 'light')return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
