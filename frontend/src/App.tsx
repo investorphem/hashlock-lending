@@ -147,7 +147,7 @@ export default function App() {
                 <ConnectWallet onConnect={handleConnect} theme={theme} />
               ) : (
                 <>
-                  <SupplyWithdraw address={address} theme={theme} />
+                  <SupplyWithdraw address={address} theme={theme} >
                   <TransactionHistory address={address} theme={theme} />
                 </>
               )}
