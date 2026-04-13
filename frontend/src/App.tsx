@@ -155,7 +155,7 @@ export default function App() {
           </div>
         </main>
 
-        {/* Footer */}
+        {/* Footer */
         <footer className="w-full mt-20 text-center pb-8">
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase ${
             theme === 'dark' ? 'bg-white/5 text-gray-400' : 'bg-black/5 text-gray-500'
