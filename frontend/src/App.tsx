@@ -125,7 +125,7 @@ export default function App() {
         {/* Hero Section */}
         <main className="flex-grow flex flex-col items-center justify-center text-center w-full max-w-3xl">
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight"
-            Yield on Bitcoin. <br/>
+            Yield on Bitcoin. <br/
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-blue-500">
               Locked by code.
             </span>
