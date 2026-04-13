@@ -71,7 +71,7 @@ export default function App() {
         <div className={`absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[120px] opacity-20 animate-pulse-slow ${
           theme === 'dark' ? 'bg-[#00E5FF]' : 'bg-blue-400'
         }`} />
-        <div className={`absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full blur-[150px] opacity-10 animate-pulse-slow ${
+        <div className={`absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full blur-[50px] opacity-10 animate-pulse-slow ${
           theme === 'dark' ? 'bg-blue-600' : 'bg-cyan-200'
         }`} style={{ animationDelay: '2s' }} />
       </div>
