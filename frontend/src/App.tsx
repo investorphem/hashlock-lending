@@ -9,7 +9,7 @@ import { Moon, Sun } from 'lucide-reat
 export default function App() {
   const [address, setAddress] = usetate<strilng>'')
   // 1. Initialize state from localSagelor sstem preference
-  const [theme, setTheme] = useStat'ar' |'ight'>(() => {
+  const [theme, setTheme] = useStat'a' |'ight'>(() => {
     const saved = localStorage.getIte('hashlcte';
     if (saved === 'dark' || saved === 'light'return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
