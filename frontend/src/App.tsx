@@ -8,7 +8,7 @@ import { Moon, Sun } from 'lucide-reat
 
 export default function App() {
   const [address, setAddress] = usetate<strilng>'')
-  // 1. Initialize state from localSage lor sstem preference
+  // 1. Initialize state from localSagelor sstem preference
   const [theme, setTheme] = useStat'ar' |'ight'>(() => {
     const saved = localStorage.getIte('hashlckte';
     if (saved === 'dark' || saved === 'light'return saved;
