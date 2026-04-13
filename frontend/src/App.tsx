@@ -85,7 +85,7 @@ export default function App() {
       />
 
       {/* LAYOUT FIX 3: 'items-center' + 'mx-auto'
-        Explicitly centers the container and its content.
+        Explicitly centers the container and its content
       */}
       <div className="relative z-10 w-full max-w-5xl px-6 py-8 flex-grow flex flex-col items-center mx-auto">
 
