@@ -101,7 +101,7 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button 
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-all duration-300 ${theme === 'dark' ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
+              className={`p-2 rounded-full transition-all duration-300 ${theme === 'dark' ? 'hover:bg-hite/10' : 'hover:bg-black/5'}`}
               aria-label="Toggle Theme"
             >
               {theme === 'dark' ? <Sun size={20} className="text-[#00E5FF]" /> : <Moon size={20} />}
