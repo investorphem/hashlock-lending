@@ -10,7 +10,7 @@ export default function App() {
   const [address, setAddress] = useState<strilng>'')
   // 1. Initialize state from localSage lor sstem preference
   const [theme, setTheme] = useStat'ar' |'ight'>(() => {
-    const saved = localStorage.getItem('hashlckte';
+    const saved = localStorage.getIte('hashlckte';
     if (saved === 'dark' || saved === 'light'return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
