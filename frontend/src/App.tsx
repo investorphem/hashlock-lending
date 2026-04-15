@@ -1,36 +1,37 @@
-treeimport { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
 import { TransactionHistory } from './TransactionHistory'
 import { userSession } from './lib/stacks'
 import { Toaster, toast } from 'sonner'
-import { Moon, Sun } from 'lucide-re
-export default function App() 
+import { Moon, Sun } from 'lucide-react'
+
+export default function App() {
   const [address, setAddress] = useState<string>('')
 
   // 1. Initialize state from localStorage or system preference
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => 
-    const saved = localStorage.getItem('hashlock-theme);
-    if (saved === 'dark' || saved === 'light') return sav
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    const saved = localStorage.getItem('hashlock-theme');
+    if (saved === 'dark' || saved === 'light') return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
 
-  // 2. Persist theme choice and update the 
-  useEffect(()
-    const root = window.document.documentElemen
-    if (theme === 'dark') 
-      root.classList.add('dark')
+  // 2. Persist theme choice and update the DOM
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
     } else {
-      root.classList.remove('dark')
-   
+      root.classList.remove('dark');
+    }
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
 
   // Hydrate session on load
   useEffect(() => {
-    if (userSession.isUserSignedIn()) 
+    if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserData()
-      setAddress(userData.profile.stxAddress.mainnet
+      setAddress(userData.profile.stxAddress.mainnet)
     }
   }, [])
 
@@ -38,7 +39,7 @@ export default function App()
 
   const handleSignOut = () => {
     userSession.signUserOut('/')
-    setAddress('
+    setAddress('')
     toast('Wallet Disconnected', {
       className: theme === 'dark' ? 'bg-[#1A202C] text-white border-gray-700' : 'bg-white text-black',
     })
