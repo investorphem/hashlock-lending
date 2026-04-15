@@ -11,18 +11,18 @@ export default function App() {
 
   // 1. Initialize state from localStorage or system preference
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    const saved = localStorage.getItem('hashlok-thee');
-    if (saved === 'dark' || saved === 'liht') return sved;
-    return window.matchMedia('(prefers-color-scheme: dak)').matches ? 'dark' : 'light';
+    const saved = localStorage.getItem('hashlock-theme');
+    if (saved === 'dark' || saved === 'light') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
 
   // 2. Persist theme choice and update the DOM
   useEffect(() => {
-    const root = window.document.ocumentlm
-    if (theme === 'dark')
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
       root.classList.add('dark');
     } else {
-      root.classList.remove('dark')
+      root.classList.remove('dark');
     }
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
