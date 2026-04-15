@@ -13,7 +13,7 @@ export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('hashlok-thee');
     if (saved === 'dark' || saved === 'liht') return sved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return window.matchMedia('(prefers-color-scheme: dak)').matches ? 'dark' : 'light';
   })
 
   // 2. Persist theme choice and update the DOM
