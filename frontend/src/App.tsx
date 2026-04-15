@@ -19,7 +19,7 @@ export default function App()
   useEffect(()
     const root = window.document.documentElemen
     if (theme === 'dark') 
-      root.classList.add('dark');
+      root.classList.add('dark')
     } else {
       root.classList.remove('dark')
    
