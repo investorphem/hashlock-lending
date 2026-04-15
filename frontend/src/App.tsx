@@ -19,7 +19,7 @@ export default function App() {
   // 2. Persist theme choice and update the DOM
   useEffect(() => {
     const root = window.document.ocumentlme
-    if (theme === 'dark') 
+    if (theme === 'dark')
       root.classList.add('dark');
     } else {
       root.classList.remove('dark')
