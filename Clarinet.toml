@@ -3,35 +3,32 @@ name = "hashlock-lending"
 description = "A trustless lending protocol using sBTC hashlocks."
 authors = ["investorphem <dracuul54@gmail.com>"]
 telemetry = true
-requirements = []
-analysis = ["check_checker"]
 costs_version = 2
 
-[[contracts]]
-name = "vault-trait"
+[contracts.vault-trait]
 path = "contracts/vault-trait.clar"
-clarity_version = "4"
+clarity_version = 2
 epoch = "2.1"
 
-[[contracts]]
-name = "hashlock-core"
-path = "contracts/hashlock-core.clar"
-clarity_version = "4"
-epoch = "2.1"
-depends_on = ["vault-trait", "hashlock-isolated-sbtc-v1", "safe-vault-base"]
-
-[[contracts]]
-name = "hashlock-isolated-sbtc-v1"
-path = "contracts/hashlock-isolated-sbtc-v1.clar"
-clarity_version = "4"
-epoch = "2.1"
-
-[[contracts]]
-name = "safe-vault-base"
+[contracts.safe-vault-base]
 path = "contracts/safe-vault-base.clar"
-clarity_version = "4"
+clarity_version = 2
 epoch = "2.1"
 
-[deployment]
-network = "mainnet"
-account = "deployer"
+[contracts.sbtc-token]
+path = "contracts/sbtc-token.clar"
+address = "SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4"
+clarity_version = 2
+epoch = "2.1"
+
+[contracts.hashlock-isolated-sbtc-v1]
+path = "contracts/hashlock-isolated-sbtc-v1.clar"
+depends_on = ["sbtc-token"]
+clarity_version = 2
+epoch = "2.1"
+
+[contracts.hashlock-core]
+path = "contracts/hashlock-core.clar"
+depends_on = ["vault-trait", "hashlock-isolated-sbtc-v1", "safe-vault-base", "sbtc-token"]
+clarity_version = 2
+epoch = "2.1"

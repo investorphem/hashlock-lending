@@ -4,15 +4,11 @@
 
 [network]
 name = "mainnet"
-# Explicitly defining the premium Hiro API endpoint ensures your 
-# deployment transactions route through the most reliable node.
 node_rpc_url = "https://api.hiro.so" 
 
 [accounts.deployer]
-# SECURITY FIX: This tells Clarinet to look for a variable named 
-# DEPLOYER_MNEMONIC in your computer's environment or a .env file.
-mnemonic = "${DEPLOYER_MNEMONIC}"
+mnemonic = "clog slab assault art include verb tornado luxury banner include stable angle"
 balance = 100_000_000_000
 
 [accounts.wallet_1]
-mnemonic = "${WALLET_1_MNEMONIC}"
+mnemonic = "clog slab assault art include verb tornado luxury banner include stable angle"

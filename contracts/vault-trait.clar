@@ -1,13 +1,13 @@
 ;; ==========================================
 ;; HASHLOCK STANDARD VAULT TRAIT
 ;; ==========================================
-;; Defines the exact interface that all HashLock 
+;; Defines the exact interface that all HashLock
 ;; whitelisted templates must implement.
 
 (define-trait vault-trait
   (
     ;; 1. Security & Verification
-    ;; Must return the exact deployed principal of the template 
+    ;; Must return the exact deployed principal of the template
     ;; for contract-hash? verification by the core.
     (get-template-source () (response principal uint))
 

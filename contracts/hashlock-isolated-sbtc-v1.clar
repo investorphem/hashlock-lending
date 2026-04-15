@@ -4,22 +4,13 @@
 ;; Immutable flash-loan vault template
 ;; No upgrades. Verified by contract-hash.
 
-;; ==========================================
-;; CONSTANTS & ERRORS
-;; ==========================================
 (define-constant FEE u9) ;; 0.09% (9 basis points)
 (define-constant ERR-REPAY (err u300))
-
-(define-constant sbtc 'SP3DX3H4FEYZJZ586MFBS25ZW3HZDMEW92260R2PR.sbtc)
-
-;; SECURITY FIX: Hardcode the whitelisted template principal.
-;; Clones cannot spoof their origin to the core contract.
 (define-constant TEMPLATE-SOURCE 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-isolated-sbtc-v1)
 
 ;; ==========================================
 ;; TRAITS
 ;; ==========================================
-;; Defines the callback interface for the flash loan borrower
 (define-trait flash-loan-receiver
   (
     (execute (uint) (response bool uint))
@@ -29,7 +20,6 @@
 ;; ==========================================
 ;; DATA VARIABLES
 ;; ==========================================
-;; Gas-optimized storage for a single-asset isolated vault
 (define-data-var total-reserve uint u0)
 
 ;; ==========================================
@@ -39,14 +29,15 @@
 ;; @desc Deposit sBTC into the vault (called by core contract)
 (define-public (deposit (amount uint))
   (let ((caller tx-sender))
-    (try! (contract-call? sbtc transfer amount caller (as-contract tx-sender) none))
+    ;; Using local shorthand linked via Clarinet.toml
+    (try! (contract-call? .sbtc-token transfer amount caller (as-contract tx-sender) none))
     (var-set total-reserve (+ (var-get total-reserve) amount))
     (ok true)
   )
 )
 
 ;; @desc Flash loan execution engine
-;; @param receiver: The borrower's contract (must implement flash-loan-receiver trait)
+;; @param receiver: The borrower's contract
 ;; @param amount: Amount of sBTC to borrow
 (define-public (flash-loan (receiver <flash-loan-receiver>) (amount uint))
   (let (
@@ -54,18 +45,17 @@
     (pre-balance (var-get total-reserve))
     (borrower tx-sender)
   )
-    ;; 1. Optimistically transfer sBTC to the borrower's contract
-    (try! (as-contract (contract-call? sbtc transfer amount tx-sender borrower none)))
-
-    ;; 2. Execute the borrower's custom logic
-    ;; The borrower MUST repay the loan + fee during this callback!
+    ;; 1. Transfer sBTC to borrower
+    (try! (as-contract (contract-call? .sbtc-token transfer amount tx-sender borrower none)))
+    
+    ;; 2. Execute borrower callback
     (try! (contract-call? receiver execute amount))
 
-    ;; 3. Verification: Cryptographically guarantee the vault is whole + fee
-    (let ((post-balance (unwrap-panic (contract-call? sbtc get-balance (as-contract tx-sender)))))
+    ;; 3. Verify repayment (Fixed: Changed unwrap-panic to unwrap!)
+    (let ((post-balance (unwrap! (contract-call? .sbtc-token get-balance (as-contract tx-sender)) ERR-REPAY)))
       (asserts! (>= post-balance (+ pre-balance fee-amount)) ERR-REPAY)
       
-      ;; 4. Update the internal reserve to include the newly earned fee
+      ;; 4. Update internal reserve
       (var-set total-reserve post-balance)
       (ok true)
     )
@@ -73,11 +63,10 @@
 )
 
 ;; ==========================================
-;; READ-ONLY & VERIFICATION FUNCTIONS
+;; READ-ONLY FUNCTIONS
 ;; ==========================================
 
-;; @desc Returns the static template source for core whitelist verification
-(define-public (get-template-source)
+(define-read-only (get-template-source)
   (ok TEMPLATE-SOURCE)
 )
 

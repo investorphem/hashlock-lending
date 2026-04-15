@@ -1,0 +1,6 @@
+﻿[network]
+name = "simnet"
+
+[accounts.deployer]
+mnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
+balance = 100000000000000

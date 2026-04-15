@@ -1,0 +1,4 @@
+.env
+settings/Mainnet.toml
+deployments/*.yaml
+node_modules/
