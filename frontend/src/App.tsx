@@ -4,7 +4,7 @@ import { SupplyWithdraw } from './SupplyWithdraw'
 import { TransactionHistory } from './TransactionHistory'
 import { userSession } from './lib/stacks'
 import { Toaster, toast } from 'sonner'
-import { Moon, Sun } from 'lucide-react
+import { Moon, Sun } from 'lucide-reac
 export default function App() {
   const [address, setAddress] = useState<string>('')
 
