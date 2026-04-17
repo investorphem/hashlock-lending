@@ -7,8 +7,8 @@ import { network } from './lib/stacks'
 import { LoadingSpinner } from './LoadingSpinner' // Ensure you created this file!
 
 const EXPLORER_URL = 'https://explorer.hiro.so/txid/' 
-const CORE = "SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-core"
-const VAULT = "SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.hashlock-isolated-sbtc-v1"
+const CORE = "SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-core"
+const VAULT = "SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-isolated-sbtc-v1"
 
 interface SupplyWithdrawProps {
   address: string
