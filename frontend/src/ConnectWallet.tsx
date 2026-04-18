@@ -8,8 +8,8 @@ interface ConnectWalletProps {
 }
 
 export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps) {
-  
-  const handleConnect = ) => {
+
+  const handleConnect = () => {
     showConnect({
       appDetails: {
         name: 'HashLock Lending',
@@ -26,7 +26,7 @@ export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps)
 
   return (
     <div className="flex flex-col items-center justify-center py-6 w-full group/container">
-      
+
       {/* Icon Container with Floating Animation */}
       <div className={`
         mb-8 p-6 rounded-[2.5rem] transition-all duration-700
@@ -74,9 +74,9 @@ export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps)
       >
         {/* Shine Overlay effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none" />
-        
+
         <span className="relative z-10">Connect Wallet</span>
-        
+
         <ArrowRight 
           size={20} 
           className={`relative z-10 transition-transform duration-300 group-hover:translate-x-1.5 ${
