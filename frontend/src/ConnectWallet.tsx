@@ -9,7 +9,7 @@ interface ConnectWalletProps {
 
 export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps) {
   
-  const handleConnect = () => {
+  const handleConnect = ) => {
     showConnect({
       appDetails: {
         name: 'HashLock Lending',
