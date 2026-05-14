@@ -24,7 +24,7 @@ export default function App() {
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('hashlock-theme', theme);
+    localStorage.setItem('hashlock-theme', theme)
   }, [theme]);
 
   // Hydrate session on load
