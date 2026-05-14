@@ -18,7 +18,7 @@ describe("HashLock Core: Template Verification", () => {
     const vault = Cl.contractPrincipal(deployer, "hashlock-isolated-sbtc-v1");
 
     // 2. Act: Call the supply function on the core contract
-    const { receipt } = simnet.callPublicFn(
+    const receipt = simnet.callPublicFn(
       CORE_CONTRACT.split('.')[1],
       "supply",
       [vault, amount],
@@ -36,7 +36,7 @@ describe("HashLock Core: Template Verification", () => {
     const fakeVault = Cl.contractPrincipal(attacker, "fake-vault");
 
     // 2. Act: Call the supply function
-    const { receipt } = simnet.callPublicFn(
+    const receipt = simnet.callPublicFn(
       CORE_CONTRACT.split('.')[1],
       "supply",
       [fakeVault, amount],
@@ -48,7 +48,19 @@ describe("HashLock Core: Template Verification", () => {
   });
 
   it("❌ fails with ERR-NOT-WHITELISTED (u100) for unknown templates", () => {
-    // Add additional assertions here for non-whitelisted templates!
-    expect(true).toBe(true);
+    // 1. Arrange: Try to use a completely unknown vault template
+    const amount = Cl.uint(1000);
+    const unknownVault = Cl.contractPrincipal(user1, "random-unknown-vault");
+
+    // 2. Act: Call the supply function
+    const receipt = simnet.callPublicFn(
+      CORE_CONTRACT.split('.')[1],
+      "supply",
+      [unknownVault, amount],
+      user1
+    );
+
+    // 3. Assert: The protocol must reject with ERR-NOT-WHITELISTED
+    expect(receipt.result).toBeErr(Cl.uint(100)); // ERR-NOT-WHITELISTED
   });
 });
