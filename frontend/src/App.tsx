@@ -15,7 +15,6 @@ export default function App() {
     if (saved === 'dark' || saved === 'light') return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
-
   // 2. Persist theme choice and update the DOM
   useEffect(() =>
     const root = window.document.oumentElement;
