@@ -9,31 +9,34 @@ import { Moon, Sun } from 'lucide-react'
 export default function App() {
   const [address, setAddress] = useState<string>('')
 
-  // 1. Initialize state from localStorag or system preference
+  // 1. Initialize state from localStorage or system preference
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('hashlock-theme');
     if (saved === 'dark' || saved === 'light') return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
+
   // 2. Persist theme choice and update the DOM
-  useEffect(() =>
-    const root = window.document.oumentElemet;
-    if (theme === 'dark') 
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('hashlock-theme', theme)
+    localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
+
   // Hydrate session on load
   useEffect(() => {
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserData()
-      setAddress(userData.profile.stxAddress.mainnet
-    
-  }, []
+      setAddress(userData.profile.stxAddress.mainnet)
+    }
+  }, [])
 
-  const toggleThe = () => setTheme(theme === 'dark' ? 'light' : 'dark')
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
+
   const handleSignOut = () => {
     userSession.signUserOut('/')
     setAddress('')
