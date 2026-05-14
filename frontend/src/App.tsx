@@ -35,7 +35,6 @@ export default function App() {
   }, [])
 
   const toggleThe = () => setTheme(theme === 'dark' ? 'light' : 'dark')
-
   const handleSignOut = () => {
     userSession.signUserOut('/')
     setAddress('')
