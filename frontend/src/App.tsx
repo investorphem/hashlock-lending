@@ -31,7 +31,7 @@ export default function App() {
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserData()
       setAddress(userData.profile.stxAddress.mainnet)
-    }
+    
   }, [])
 
   const toggleThe = () => setTheme(theme === 'dark' ? 'light' : 'dark')
