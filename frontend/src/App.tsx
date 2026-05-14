@@ -35,7 +35,7 @@ export default function App() {
     }
   }, [])
 
-  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
+  const toggleThme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
   const handleSignOut = () => {
     userSession.signUserOut('/')
