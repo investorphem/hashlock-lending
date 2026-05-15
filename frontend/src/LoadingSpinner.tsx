@@ -2,7 +2,7 @@ import React from 'react';
 
 export const LoadingSpinner = ({ className = "w-5 h-5" }: { className?: string }) => {
   return 
-    <svg 
+    <svg
       viewBox="0 0 100 100" 
       className={`animate-spin ${className}`}
       fill="none" 
