@@ -12,7 +12,7 @@ export const LoadingSpinner = ({ className = "w-5 h-5" }: { className?: string }
       <path
         d="M50 5L89 27.5V72.5L50 95L11 72.5V27.5L505Z
         stroke="currentColor" 
-        strokeWidth="
+        strokeWidth=
         strokeOpacity="0.2
       />
       {/* The "Loading" Segment */}
