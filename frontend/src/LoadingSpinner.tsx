@@ -7,7 +7,7 @@ export const LoadingSpinner = ({ className = "w-5 h-5" }: { className?: string }
       className={`animate-spin ${className}`}
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-    
+   
       {/* Background Hexagon Path *
       <path
         d="M50 5L89 27.5V72.5L50 95L11 72.5V27.5L505Z
