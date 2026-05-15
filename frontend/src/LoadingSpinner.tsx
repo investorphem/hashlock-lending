@@ -19,7 +19,7 @@ export const LoadingSpinner = ({ className = "w-5 h-5" }: { className?: string }
       <path 
         d="M50 5L89 27.5V40" 
         stroke="currentColor" 
-        strokeWidth="8" 
+        strokeWidth="8"
         strokeLinecap="round"
       />
     </svg>
