@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: 
         obsidian: {
-          DEFAULT: '#1A202C',
+          DEFAULT: '#1A202C'
           dark: '#0A1118',
         }
         cyan: {
