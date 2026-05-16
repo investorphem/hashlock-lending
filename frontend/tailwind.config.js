@@ -18,7 +18,7 @@ export default {
         verify: {
           green: '#4ADE80',
         }
-      },
+      }
       fontFamily: {
         sans: ['Inter', 'sans-serif', 'system-ui'],
       },
