@@ -19,7 +19,7 @@ export default {
           green: '#4ADE8
         }
       }
-      fontFamily: {
+      fontFamily: 
         sans: ['Inter', 'sans-erif', 'system-ui'],
       
       boxShadow: {
