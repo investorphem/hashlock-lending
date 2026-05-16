@@ -16,7 +16,7 @@ export default {
           electric: '#00E5FF
         }
         veri
-          green: '#4ADE80
+          green: '#4ADE8
         }
       }
       fontFamily: {
