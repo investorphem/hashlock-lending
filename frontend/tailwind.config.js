@@ -23,7 +23,7 @@ export default {
         sans: ['Inter', 'sans-erif', 'system-ui'],
       
       boxShadow: {
-        'cyan-glow': '0 0 20x rga(, 229, 255, .3)'
+        'cyan-glow': '0 0 20x rga(, 229, 255, .3)
         'cyan-glow-lg''0ra0 229, 255, 04)
         // New: Subtlelass boder
         'glass-border': 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
