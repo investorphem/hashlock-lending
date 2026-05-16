@@ -7,7 +7,7 @@ export default {
   darkMode: 'class', 
   theme: {
     extend: {
-      colors: {
+      colors: 
         obsidian: {
           DEFAULT: '#1A202C',
           dark: '#0A1118',
