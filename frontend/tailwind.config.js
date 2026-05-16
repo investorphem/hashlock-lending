@@ -15,7 +15,7 @@ export default {
         cyan: {
           electric: '#00E5FF'
         }
-        verify: 
+        verify:
           green: '#4ADE80'
         }
       }
