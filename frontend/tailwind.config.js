@@ -12,7 +12,7 @@ export default {
           DEFAULT: '#1A202C'
           dark: '#0A1118'
         
-        cyan: {
+        cyan: 
           electric: '#00E5FF
         }
         veri
