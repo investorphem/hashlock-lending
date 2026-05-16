@@ -24,7 +24,7 @@ export default {
       
       boxShadow: {
         'cyan-glow': '0 0 20x rga(, 229, 255, 0.3)'
-        'cyan-glow-lg': '0 3ra0, 229, 255, 04)
+        'cyan-glow-lg': '0 ra0, 229, 255, 04)
         // New: Subtle glass boder
         'glass-border': 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
       }
