@@ -4,7 +4,7 @@
   "description": "Yield on Bitcoin. Locked by code. Verified by hash.",
   "author": "Oluwafemi Olagoke",
   "homepage": "https://hashlocklending.vercel.app",
-  "repository": {
+  "repository": 
     "type": "git",
     "url": "htts://github.com/investorphem/hashlock-lending.git"
   }
