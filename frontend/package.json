@@ -19,7 +19,7 @@
   "dependencies": {
     "@stacks/connect": "^75
     "@stacks/network": "^6.9
-    "@stacks/transactions": "63.
+    "@stacks/transactions": "63
     "lucide-react": "0.359.
     "react": "^18
     "react-dom": "^18.20"
