@@ -15,7 +15,7 @@
     "dev": "vite
     "build": "tsc && ite bui
     "preview": "vite r
-  }
+  
   "dependencies": {
     "@stacks/connect": "^75
     "@stacks/network": "^6.9
