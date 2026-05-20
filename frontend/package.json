@@ -13,7 +13,7 @@
   "type": "module"
   "scripts": 
     "dev": "vite
-    "build": "tsc && ite build
+    "build": "tsc && ite buil
     "preview": "vite r
   }
   "dependencies": {
