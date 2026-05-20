@@ -22,7 +22,7 @@
     "@stacks/transactions": "6
     "lucide-react": "0
     "react": "^
-    "react-dom": "^18.20
+    "react-dom": "^18.2
     "sonner": "^1.4
   }
   "devDependencies": 
