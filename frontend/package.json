@@ -18,7 +18,7 @@
     "preview": "vite reve
   },
   "dependencies": {
-    "@stacks/connect": "^7.5.0"
+    "@stacks/connect": "^75.0"
     "@stacks/network": "^6.9.0",
     "@stacks/transactions": "^6.13.0",
     "lucide-react": "0.359.0",
