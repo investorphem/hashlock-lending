@@ -20,7 +20,7 @@
     "@stacks/connect": "^75
     "@stacks/network": "^6.9
     "@stacks/transactions": "6
-    "lucide-react": "03
+    "lucide-react": "0
     "react": "^1
     "react-dom": "^18.20"
     "sonner": "^1.4
