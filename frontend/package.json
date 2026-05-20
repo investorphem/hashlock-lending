@@ -10,7 +10,7 @@
   }
   "bugs":
     "url": "https://github.cominvestophem/hashlck-lending/
-  "type": "module"
+  "type": "module
   "scripts":
     "dev": "vite
     "build": "tsc && ite bui
