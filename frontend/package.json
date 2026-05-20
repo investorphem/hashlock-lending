@@ -10,7 +10,7 @@
   }
   "bugs": 
     "url": "https://github.cominvestophem/hashlock-lending/issues"
-  },
+  }
   "type": "module",
   "scripts": 
     "dev": "vite"
