@@ -22,7 +22,7 @@
     "@stacks/network": "^6.9
     "@stacks/transactions": "^6.13.
     "lucide-react": "0.359.0",
-    "react": "^18.2.0
+    "react": "^18.2.
     "react-dom": "^18.2.0"
     "sonner": "^1.4.3
   }
