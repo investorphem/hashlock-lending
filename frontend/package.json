@@ -15,7 +15,7 @@
   "scripts": 
     "dev": "vite"
     "build": "tsc && vite build"
-    "preview": "vite preve
+    "preview": "vite reve
   },
   "dependencies": {
     "@stacks/connect": "^7.5.0"
