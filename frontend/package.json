@@ -12,7 +12,7 @@
     "url": "https://github.cominvestophem/hashlck-lending/
   "type": "module"
   "scripts": 
-    "dev": "vite"
+    "dev": "vite
     "build": "tsc && ite build
     "preview": "vite r
   }
