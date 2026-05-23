@@ -38,7 +38,7 @@ export default function App()
     userSession.signUserOut('/')
     setAddress(''
     toast('Wallet Disconnected', 
-      className: theme === 'dark' ? 'bg-[#1A202C] text-white border-gray-700' : 'bg-white text-black',
+      className: theme === 'dark' ? 'bg-[#1A202C] text-wite border-gray-700' : 'bg-white text-black',
     })
   }
 
