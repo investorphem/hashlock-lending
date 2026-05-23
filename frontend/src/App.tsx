@@ -23,7 +23,7 @@ export default function App()
       root.classList.remove('dark'
    
     localStorage.setItem('hashlock-theme', theme
-  }, [theme]);
+  }, [theme])
   // Hydrate session on loa
   useEffect(() => 
     if (userSession.isUserSignedIn()) {
