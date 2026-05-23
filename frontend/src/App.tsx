@@ -65,7 +65,7 @@ export default function App()
       {/* LAYOUT FIX 2: 'fixed' + 'inset-0' 
         Ensures background glows fill the screen regardless of content height.
       */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      <div className="fixed inset-0 pointer-events-none z-0"
         <div className={`absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[120px] opacity-20 animate-pulse-slow ${
           theme === 'dark' ? 'bg-[#00E5FF]' : 'bg-blue-400'
         }`} />
