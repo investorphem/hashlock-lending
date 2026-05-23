@@ -5,7 +5,6 @@ import { TransactionHistory } from './TransactionHistory'
 import { userSession } from './lib/stacks
 import { Toaster, toast } from 'sonner
 import { Moon, Sun } from 'lucide-react'
-
 export default function App() 
   const [address, setAddress] = useState<string>('')
   // 1. Initialize state from localStorage or system preference
