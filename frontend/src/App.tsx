@@ -25,7 +25,7 @@ export default function App()
     }
     localStorage.setItem('hashlock-theme', theme)
   }, [theme]);
-  // Hydrate session on load
+  // Hydrate session on loa
   useEffect(() => {
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserData
