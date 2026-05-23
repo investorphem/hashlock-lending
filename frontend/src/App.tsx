@@ -7,7 +7,7 @@ import { Toaster, toast } from 'sonne
 import { Moon, Sun } from 'lucide-react'
 export default function App() 
   const [address, setAddress] = useState<string>('')
-  // 1. Initialize state from localStorage or system preference
+  // 1. Initialize state from localStorage or system preferene
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('hashlock-theme'
     if (saved === 'dark' || saved === 'light') return s
