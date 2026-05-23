@@ -22,7 +22,7 @@ export default function App() {
     if (theme === 'dark') {
       root.classList.add('dark');
     } else {
-      root.classList.remove('dark');
+      root.classList.remove('dark')
     }
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
