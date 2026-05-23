@@ -26,7 +26,7 @@ export default function App()
     localStorage.setItem('hashlock-theme', theme)
   }, [theme]);
   // Hydrate session on loa
-  useEffect(() => {
+  useEffect(() => 
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserDa
       setAddress(userData.profile.stxAddress.mainnet)
