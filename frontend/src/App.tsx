@@ -59,7 +59,7 @@ export default function App()
       Forces the background to span the full width of the mobile browser and centers all children.
     */
     <div className={`relative min-h-screen w-screen flex flex-col items-center overflow-x-hidden transition-colors duration-500 ${theme} ${
-      theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'
+      theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC text-[#0A1118]'
     }`}>
 
       {/* LAYOUT FIX 2: 'fixed' + 'inset-0' 
