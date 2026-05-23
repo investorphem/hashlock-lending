@@ -23,7 +23,7 @@ export default function App()
       root.classList.add('dark');
     } else {
       root.classList.remove('dark')
-    }
+    }l
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
   // Hydrate session on load
