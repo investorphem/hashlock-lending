@@ -2,42 +2,46 @@ import { useState, useEffect } from 'react'
 import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
 import { TransactionHistory } from './TransactionHistory'
-import { userSession } from './lib/stacks
-import { Toaster, toast } from 'sonne
+import { userSession } from './lib/stacks'
+import { Toaster, toast } from 'sonner'
 import { Moon, Sun } from 'lucide-react'
-export default function App() 
+
+export default function App() {
   const [address, setAddress] = useState<string>('')
-  // 1. Initialize state from localStorage or system preferene
+
+  // 1. Initialize state from localStorage or system preference
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    const saved = localStorage.getItem('hashlock-theme'
-    if (saved === 'dark' || saved === 'light') return 
-    return window.matchMedia('(prefers-color-scheme: dark)').maches? 'dark' : 'ligh
+    const saved = localStorage.getItem('hashlock-theme');
+    if (saved === 'dark' || saved === 'light') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
 
   // 2. Persist theme choice and update the DOM
-  useEffect(() => 
+  useEffect(() => {
     const root = window.document.documentElement;
     if (theme === 'dark') {
-      root.classList.add('dark')
-    } else 
-      root.classList.remove('dark'
-   
-    localStorage.setItem('hashlock-theme', theme
-  }, [theme])
-  // Hydrate session on lo
-  useEffect(() => 
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('hashlock-theme', theme);
+  }, [theme]);
+
+  // Hydrate session on load
+  useEffect(() => {
     if (userSession.isUserSignedIn()) {
-      const userData = userSession.loadUserD
+      const userData = userSession.loadUserData()
       setAddress(userData.profile.stxAddress.mainnet)
-    
+    }
   }, [])
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
-  const handleSignOut = () => 
+
+  const handleSignOut = () => {
     userSession.signUserOut('/')
-    setAddress('
-    toast('Wallet Disconnected'
-      className: theme === 'dark' ? 'bg-[#1A202C] text-wite border-gray-700' : 'bg-white text-black',
+    setAddress('')
+    toast('Wallet Disconnected', {
+      className: theme === 'dark' ? 'bg-[#1A202C] text-white border-gray-700' : 'bg-white text-black',
     })
   }
 
@@ -58,13 +62,13 @@ export default function App()
       Forces the background to span the full width of the mobile browser and centers all children.
     */
     <div className={`relative min-h-screen w-screen flex flex-col items-center overflow-x-hidden transition-colors duration-500 ${theme} ${
-      theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC text-[#0A1118]'
+      theme === 'dark' ? 'bg-[#0A1118] text-white' : 'bg-[#F8FAFC] text-[#0A1118]'
     }`}>
 
       {/* LAYOUT FIX 2: 'fixed' + 'inset-0' 
         Ensures background glows fill the screen regardless of content height.
       */}
-      <div className="fixed inset-0 pointer-events-none z-0"
+      <div className="fixed inset-0 pointer-events-none z-0">
         <div className={`absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[120px] opacity-20 animate-pulse-slow ${
           theme === 'dark' ? 'bg-[#00E5FF]' : 'bg-blue-400'
         }`} />
@@ -93,7 +97,7 @@ export default function App()
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <h1 className="text-2xl font-extrabold tracking-tight">HashLock</h1>
-          </div
+          </div>
 
           <div className="flex items-center gap-4">
             <button 
@@ -128,15 +132,15 @@ export default function App()
             </span>
           </h2>
           <p className={`text-base md:text-xl mb-12 max-w-2xl px-4 mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-            The world’s first lending protocol that cryptographically guarantees every vault is an exact, audited, immutable template
+            The world’s first lending protocol that cryptographically guarantees every vault is an exact, audited, immutable template.
           </p>
 
           {/* Glassmorphism Card with Hover Shine */}
           <div className={`relative overflow-hidden group w-full max-w-md p-8 rounded-3xl border backdrop-blur-xl transition-all duration-500 mx-auto ${
             theme === 'dark' 
-              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.05)] hover:border-[#00E5FF]/50'
+              ? 'bg-white/[0.02] border-white/10 shadow-[0_8px_32px_rgba(0,229,255,0.05)] hover:border-[#00E5FF]/50' 
               : 'bg-white border-gray-100 shadow-2xl hover:border-blue-500/50'
-          }`}
+          }`}>
             <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform pointer-events-none" />
 
             <div className="relative z-10">
@@ -145,7 +149,7 @@ export default function App()
               ) : (
                 <>
                   <SupplyWithdraw address={address} theme={theme} />
-                  <TransactionHistory address={address} theme={teme} />
+                  <TransactionHistory address={address} theme={theme} />
                 </>
               )}
             </div>
@@ -153,8 +157,8 @@ export default function App()
         </main>
 
         {/* Footer */}
-        <footer className="w-full mt-20 text-center pb-8"
-          <div className={`inline-flex items-center gap-2 px4 y-2 rounded-full text-xs font-bold tracking-widest uppercase ${
+        <footer className="w-full mt-20 text-center pb-8">
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase ${
             theme === 'dark' ? 'bg-white/5 text-gray-400' : 'bg-black/5 text-gray-500'
           }`}>
             <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></span>
