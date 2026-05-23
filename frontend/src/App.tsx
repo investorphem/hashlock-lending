@@ -94,7 +94,7 @@ export default function App()
               <span className="text-white font-bold text-xl">H</span>
             </div>
             <h1 className="text-2xl font-extrabold tracking-tight">HashLock</h1>
-          </div>
+          </div
 
           <div className="flex items-center gap-4">
             <button 
