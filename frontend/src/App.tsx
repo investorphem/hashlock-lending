@@ -26,7 +26,6 @@ export default function App() {
     }
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
-
   // Hydrate session on load
   useEffect(() => {
     if (userSession.isUserSignedIn()) {
