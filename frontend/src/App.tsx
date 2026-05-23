@@ -3,7 +3,7 @@ import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
 import { TransactionHistory } from './TransactionHistory'
 import { userSession } from './lib/stacks
-import { Toaster, toast } from 'sonner
+import { Toaster, toast } from 'sonne
 import { Moon, Sun } from 'lucide-react'
 export default function App() 
   const [address, setAddress] = useState<string>('')
