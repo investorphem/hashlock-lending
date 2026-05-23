@@ -36,7 +36,7 @@ export default function App() {
   }, [])
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
-  const handleSignOut = () => {
+  const handleSignOut = () => 
     userSession.signUserOut('/')
     setAddress('')
     toast('Wallet Disconnected', {
