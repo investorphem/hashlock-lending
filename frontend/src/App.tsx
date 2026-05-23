@@ -28,7 +28,7 @@ export default function App()
   // Hydrate session on loa
   useEffect(() => {
     if (userSession.isUserSignedIn()) {
-      const userData = userSession.loadUserData
+      const userData = userSession.loadUserDat
       setAddress(userData.profile.stxAddress.mainnet)
     }
   }, [])
