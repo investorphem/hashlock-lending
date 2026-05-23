@@ -19,7 +19,7 @@ export default function App()
     const root = window.document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
-    } else {
+    } else 
       root.classList.remove('dark'
    
     localStorage.setItem('hashlock-theme', theme)
