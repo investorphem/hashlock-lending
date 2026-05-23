@@ -29,7 +29,7 @@ export default function App()
     if (userSession.isUserSignedIn()) {
       const userData = userSession.loadUserD
       setAddress(userData.profile.stxAddress.mainnet)
-    }
+    
   }, [])
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
