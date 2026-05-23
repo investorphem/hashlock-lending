@@ -10,7 +10,7 @@ export default function App()
   // 1. Initialize state from localStorage or system preferene
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('hashlock-theme'
-    if (saved === 'dark' || saved === 'light') return s
+    if (saved === 'dark' || saved === 'light') return 
     return window.matchMedia('(prefers-color-scheme: dark)').maches? 'dark' : 'ligh
   })
 
