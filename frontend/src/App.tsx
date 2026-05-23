@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
 import { TransactionHistory } from './TransactionHistory'
-import { userSession } from './lib/stacks'
+import { userSession } from './lib/stacks
 import { Toaster, toast } from 'sonner'
 import { Moon, Sun } from 'lucide-react'
 
