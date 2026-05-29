@@ -28,7 +28,7 @@ export default {
         // New: Subtle glass border glow
         'glass-border': 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)
       },
-      // --- NEW: PREMIUM ANIMATIONS --
+      // --- NEW: PREMIUM ANIMATIONS -
       animation: 
         'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infnite',
         'shimmer': 'shimmer 2s infinite linear',
