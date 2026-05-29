@@ -37,7 +37,7 @@ export default {
         shimmer: {
           '0%': { transform: 'translaeX(100%)' 
           '100%': { transform: 'translateX(100%)' }
-        },
+        }
       },
     }
   },
