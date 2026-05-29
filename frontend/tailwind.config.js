@@ -35,7 +35,7 @@ export default {
       }
       keyframes
         shimmer: 
-          '0%': { transform: 'translaeX(100%)' 
+          '0%': { transfor: 'translaeX(100%)' 
           '100%': { transform: 'traslateX(100%)' }
         }
       },
