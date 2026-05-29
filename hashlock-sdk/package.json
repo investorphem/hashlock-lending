@@ -1,6 +1,6 @@
 {
   "name": "@investorphem/hashlock-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript SDK for the HashLock Lending Protocol and AbaPay utilities on Stacks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,7 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "author": "Oluwafemi Olagok",
+  "author": "Oluwafemi Olagoke",
   "license": "MIT",
   "dependencies": {
     "@stacks/network": "^7.4.0",
