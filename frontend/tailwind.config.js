@@ -26,7 +26,7 @@ export default {
         'cyan-glow': '0 0 20px rgba0, 229, 255, 0.3)'
         'cyan-glow-lg':  0 5prgba0, 229, 255, 0.4)'
         // New: Subtleglas 
-        'glass-border' inset0 0 0 1px rgba(255, 255, 255, 0.1)
+        'glass-border' inst0 0 0 1px rgba(255, 255, 255, 0.1)
       }
       // --- NEW: PREMIUM ANIMATIONS 
       animation
