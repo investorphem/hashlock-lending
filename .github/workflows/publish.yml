@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+    # Only trigger this workflow if files in the hashlock-sdk folder change
+    paths:
+      - 'hashlock-sdk/**'
+
+# Tell all 'run' commands to execute inside your specific subfolder
+defaults:
+  run:
+    working-directory: ./hashlock-sdk
 
 jobs:
   build-and-publish:
@@ -14,24 +22,22 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 2. Set up Node.js environment with npm caching
+      # 2. Set up Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
 
-      # 3. Install clean production & development dependencies
+      # 3. Install clean dependencies inside hashlock-sdk
       - name: Install Dependencies
         run: npm ci
 
-      # 4. Compile TypeScript source files to the /dist directory
+      # 4. Compile TypeScript source files
       - name: Compile SDK
         run: npm run build
 
       # 5. Authenticate and publish securely to npm
-      # Note: The --access public flag allows free publishing for scoped packages
       - name: Publish to npm
         run: npm publish --access public
         env:
