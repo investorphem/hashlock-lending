@@ -1,4 +1,4 @@
-# @masonode/hashlock-sdk
+# @investorphem/hashlock-sdk
 
 The official TypeScript SDK for the **HashLock Lending Protocol** on the Stacks Mainnet. Built and maintained by Masonode Technologies Limited.
 
