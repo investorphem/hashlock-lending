@@ -22,7 +22,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif', 'system-ui']
       }
-      boxShadow: {
+      boxShadow: {l
         'cyan-glow': '0 0 20px rgba(0, 229, 255, 0.3)'
         'cyan-glow-lg': 0 0 35px rgba(0, 229, 255, 0.4)'
         // New: Subtleglass border gl
