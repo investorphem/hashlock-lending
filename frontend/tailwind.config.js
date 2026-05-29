@@ -20,7 +20,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif', 'system-ui'],
+        sans: ['Inter', 'sans-serif', 'system-ui']
       },
       boxShadow: {
         'cyan-glow': '0 0 20px rgba(0, 229, 255, 0.3)',
