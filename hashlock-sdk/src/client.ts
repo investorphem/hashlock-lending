@@ -1,11 +1,10 @@
 // ==========================================
-// HASHLOCK SDK: CORE CLIENT
+// HASHLOCK SDK: CORE CLIENT (V7 COMPATIBLE)
 // ==========================================
 
-import { StacksMainnet } from '@stacks/network';
+import { STACKS_MAINNET } from '@stacks/network';
 import { 
-  callReadOnlyFunction, 
-  makeContractCall,
+  fetchCallReadOnlyFunction, 
   uintCV, 
   cvToValue
 } from '@stacks/transactions';
@@ -13,12 +12,7 @@ import { CONTRACTS, MAINNET_DEPLOYER } from './constants';
 import { DepositOptions, WithdrawOptions } from './types';
 
 export class HashLockClient {
-  private network: StacksMainnet;
-
-  constructor() {
-    // Hardcoded to premium Hiro API for Masonode Mainnet routing
-    this.network = new StacksMainnet({ url: 'https://api.hiro.so' });
-  }
+  private network = STACKS_MAINNET;
 
   /**
    * Retrieves the current reserve balance of the standard vault.
@@ -27,7 +21,7 @@ export class HashLockClient {
   async getVaultReserve(): Promise<number> {
     const [contractAddress, contractName] = CONTRACTS.VAULT.split('.');
     
-    const result = await callReadOnlyFunction({
+    const result = await fetchCallReadOnlyFunction({
       contractAddress,
       contractName,
       functionName: 'get-reserve',
@@ -41,34 +35,34 @@ export class HashLockClient {
 
   /**
    * Builds the transaction payload for depositing sBTC.
-   * This object can be passed directly to the Stacks Web Wallet or Mobile App.
+   * This object can be passed directly to @stacks/connect (openContractCall).
    */
-  async buildDepositTx(options: DepositOptions) {
+  buildDepositTx(options: DepositOptions) {
     const [contractAddress, contractName] = CONTRACTS.VAULT.split('.');
 
-    return makeContractCall({
+    return {
       contractAddress,
       contractName,
       functionName: 'deposit',
       functionArgs: [uintCV(options.amount)],
       network: this.network,
-      senderAddress: options.senderAddress,
-    });
+      stxAddress: options.senderAddress, // Hints the wallet to use this address
+    };
   }
 
   /**
    * Builds the transaction payload for withdrawing sBTC.
    */
-  async buildWithdrawTx(options: WithdrawOptions) {
+  buildWithdrawTx(options: WithdrawOptions) {
     const [contractAddress, contractName] = CONTRACTS.VAULT.split('.');
 
-    return makeContractCall({
+    return {
       contractAddress,
       contractName,
       functionName: 'withdraw',
       functionArgs: [uintCV(options.amount)],
       network: this.network,
-      senderAddress: options.senderAddress,
-    });
+      stxAddress: options.senderAddress,
+    };
   }
 }
