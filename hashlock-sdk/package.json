@@ -11,9 +11,9 @@
   "author": "Oluwafemi Olagoke",
   "license": "MIT",
   "dependencies": {
-    "@stacks/network": "^7.4.0",
-    "@stacks/transactions": "^7.4.0",
-    "@stacks/common": "^7.4.0"
+    "@stacks/network": "latest",
+    "@stacks/transactions": "latest",
+    "@stacks/common": "latest"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
