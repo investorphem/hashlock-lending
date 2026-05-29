@@ -12,7 +12,7 @@
     "url": "https://github.com/investorphem/hashlock-lending/issues"
   }
   "type": "module",
-  "scripts": {
+  "scripts": 
     "dev": "vite",
     "build": "tsc && vite build"
     "preview": "vite preview"
