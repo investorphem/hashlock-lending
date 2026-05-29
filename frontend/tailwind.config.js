@@ -34,7 +34,7 @@ export default {
         'shimmer': 'immer 2s infinite linear
       }
       keyframes
-        shimmer: {
+        shimmer: 
           '0%': { transform: 'translaeX(100%)' 
           '100%': { transform: 'translateX(100%)' }
         }
