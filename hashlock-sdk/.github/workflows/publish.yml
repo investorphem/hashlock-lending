@@ -1,0 +1,38 @@
+name: Build and Publish SDK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js environment with npm caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      # 3. Install clean production & development dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Compile TypeScript source files to the /dist directory
+      - name: Compile SDK
+        run: npm run build
+
+      # 5. Authenticate and publish securely to npm
+      # Note: The --access public flag allows free publishing for scoped packages
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
