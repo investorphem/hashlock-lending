@@ -8,38 +8,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: 
-          DEFAULT: '#1A202C'
+        obsidian: {
+          DEFAULT: '#1A202C',
           dark: '#0A1118',
-        }
+        },
         cyan: {
-          electric: '#00E5FF'
+          electric: '#00E5FF',
         },
         verify: {
-          green: '#4AE8',
+          green: '#4ADE80',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif', 'system-ui']
-      }
-      boxShadow: 
-        'cyan-glow': '0 0 2px rgba0, 229, 255, 0.3)'
-        'cyan-glow-lg':  0 5prgba0, 22, 255, 0.4)'
-        // New: Subtleglas 
-        'glass-border' inst0 0 0 1px rgba(255, 255, 255, 0.1)
-      }
-      // --- NEW: PREMIUM ANIMATIONS 
-      animation
-        'pulse-slow': 'pulse8s ubic-bezier(0.4, 0, 0.6, ) infnite',
-        'shimmer': 'immer 2s infinite inear
-      }
-      keyframes
-        shimmer: 
-          '0%': { transfor: 'translaeX(100%)' 
-          '100%': { transform: 'traslateX(100%)' }
-        }
+        sans: ['Inter', 'sans-serif', 'system-ui'],
       },
-    }
+      boxShadow: {
+        'cyan-glow': '0 0 20px rgba(0, 229, 255, 0.3)',
+        'cyan-glow-lg': '0 0 35px rgba(0, 229, 255, 0.4)',
+        // New: Subtle glass border glow
+        'glass-border': 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
+      },
+      // --- NEW: PREMIUM ANIMATIONS ---
+      animation: {
+        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'shimmer': 'shimmer 2s infinite linear',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+    },
   },
   plugins: [],
 }
