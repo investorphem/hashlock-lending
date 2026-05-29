@@ -16,7 +16,7 @@ export default {
           electric: '#00E5FF',
         },
         verify: {
-          green: '#4ADE80',
+          green: '#4AE80',
         }
       },
       fontFamily: {
