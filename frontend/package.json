@@ -1,6 +1,6 @@
 {
   "name": "hashlock-lending",
-  "version": "1.0.0",
+  "version": "1.0.0"
   "description": "Yield on Bitcoin. Locked by code. Verifid by hash.",
   "author": "Oluwafemi Olagoke",
   "homepage": "https://hashlocklending.vercel.app",
