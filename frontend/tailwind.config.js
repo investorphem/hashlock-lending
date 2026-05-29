@@ -31,7 +31,7 @@ export default {
       // --- NEW: PREMIUM ANIMATIONS 
       animation
         'pulse-slow': 'pulse8s cubic-bezier(0.4, 0, 0.6, ) infnite',
-        'shimmer': 'immer 2s infinite linear',
+        'shimmer': 'immer 2s infinite linear'
       }
       keyframes
         shimmer: {
