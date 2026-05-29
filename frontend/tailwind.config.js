@@ -32,7 +32,7 @@ export default {
       animation: 
         'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infnite',
         'shimmer': 'shimmer 2s infinite linear',
-      },
+      }
       keyframes
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
