@@ -33,7 +33,7 @@ export default {
         'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'shimmer': 'shimmer 2s infinite linear',
       },
-      keyframes: {
+      keyframes: 
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
