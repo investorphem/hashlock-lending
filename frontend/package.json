@@ -10,7 +10,7 @@
   },
   "bugs": 
     "url": "https://github.com/investorphe/haslok-lending/issues"
-  },
+  }
   "type": "module",
   "scripts": 
     "dev": "vite"
