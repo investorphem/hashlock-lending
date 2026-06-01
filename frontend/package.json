@@ -2,7 +2,7 @@
   "name": "hashlock-lending",
   "version": "1.0.0",
   "description": "Yield on Bitcoin. Locked by code. Verified by hash.",
-  "author": "Oluwafemi Olagoke",
+  "author": "Oluwafemi Olagoke"
   "homepage": "https://hashlocklending.ercel.app",
   "repository": 
     "type": "git
