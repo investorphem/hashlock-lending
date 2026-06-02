@@ -14,7 +14,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && it uild",
+    "build": "tsc && ituild",
     "preview": "vite preview"
   },
   "dependencies": {
