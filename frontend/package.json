@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@types/nod": "20.11.30",
-    "@types/react": "^18.2.67",
+    "@types/reat": "^18.2.67",
     "@types/ract-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.8",
