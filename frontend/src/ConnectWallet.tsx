@@ -7,8 +7,6 @@ interface ConnectWalletProps {
   theme?: 'dark' | 'light'
 }
 
-export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps) {
-
   const handleConnect = () => {
     showConnect({
       appDetails: {
