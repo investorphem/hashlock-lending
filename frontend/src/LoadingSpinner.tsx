@@ -9,8 +9,7 @@ export const LoadingSpinner = ({ className = "w-5 h-5" }: { className?: string }
         stroke="currentColor" 
         strokeWidth="8" 
         strokeOpacity="0.2"
-      />
-      {/* The "Loading" Segment */}
+      /
       <path 
         d="M50 5L89 27.5V40" 
         stroke="currentColor" 
