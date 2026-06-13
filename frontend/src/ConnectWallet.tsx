@@ -6,8 +6,6 @@ interface ConnectWalletProps {
   onConnect: (addr: string) => void
   theme?: 'dark' | 'light'
 }
-
- 
       onFinish: () => {
         const userData = userSession.loadUserData()
         // Ensure we grab the right address format
