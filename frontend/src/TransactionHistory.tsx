@@ -24,7 +24,6 @@ export function TransactionHistory({ address, theme = 'dark' }: TransactionHisto
         const res = await fetch(`https://api.mainnet.hiro.so/extended/v1/address/${address}/transactions?limit=5`)
         const data = await res.json()
         
-        // Filter for HashLock Core interactions
         const hashlockTxs = data.results.filter((tx: any) => 
           tx.contract_call?.contract_id?.includes('hashlock-core')
         )
