@@ -26,14 +26,7 @@ export function TransactionHistory({ address, theme = 'dark' }: TransactionHisto
         
         const hashlockTxs = data.results.filter((tx: any) => 
           tx.contract_call?.contract_id?.includes('hashlock-core')
-        )
-        setTransactions(hashlockTxs)
-      } catch (err) {
-        console.error("Failed to fetch history", err)
-      } finally {
-        setLoading(false)
-      }
-    }
+      
 
     if (address) fetchHistory()
   }, [address])
