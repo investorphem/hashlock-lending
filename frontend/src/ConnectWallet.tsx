@@ -7,12 +7,7 @@ interface ConnectWalletProps {
   theme?: 'dark' | 'light'
 }
 
-  const handleConnect = () => {
-    showConnect({
-      appDetails: {
-        name: 'HashLock Lending',
-        icon: window.location.origin + '/favicon.svg'
-      },
+ 
       onFinish: () => {
         const userData = userSession.loadUserData()
         // Ensure we grab the right address format
