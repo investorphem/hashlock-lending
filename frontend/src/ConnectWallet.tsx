@@ -6,6 +6,15 @@ interface ConnectWalletProps {
   onConnect: (addr: string) => void
   theme?: 'dark' | 'light'
 }
+
+export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps) {
+
+  const handleConnect = () => {
+    showConnect({
+      appDetails: {
+        name: 'HashLock Lending',
+        icon: window.location.origin + '/favicon.svg'
+      },
       onFinish: () => {
         const userData = userSession.loadUserData()
         // Ensure we grab the right address format
