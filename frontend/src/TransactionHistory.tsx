@@ -27,8 +27,7 @@ export function TransactionHistory({ address, theme = 'dark' }: TransactionHisto
   }, [address])
 
   const getStatusIcon = (status: string) => {
-    if (status === 'success') return <CheckCircle2 size={14} className="text-emerald-500" />
-    if (status === 'pending') return <Clock size={14} className="text-amber-500 animate-pulse" />
+    if (status === 'success') return <CheckCircle2 size={14} className="text-emerald-500"
    
   return (
     <div className={`mt-12 w-full max-w-md mx-auto p-6 rounded-3xl border transition-all duration-500 ${
