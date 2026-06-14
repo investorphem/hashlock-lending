@@ -23,9 +23,6 @@ export default function App() {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
-    }
-    localStorage.setItem('hashlock-theme', theme);
-  }, [theme]);
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
