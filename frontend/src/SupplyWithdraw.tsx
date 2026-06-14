@@ -18,12 +18,7 @@ interface SupplyWithdrawProps {
 export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps) {
   const [amount, setAmount] = useState('')
   // Track which action is currently pending to show the correct spinner
-  const [pendingAction, setPendingAction] = useState<'supply' | 'withdraw' | null>(null)
-
-  const handleTxSuccess = (txId: string, action: string) => {
-    toast.success(`${action} Submitted`, {
-      description: (
-        >
+  const [pendingAction, setPendingAction] = useState<'supply' | 'withdraw' | null>(
           View on Explorer <ExternalLink size={14} />
         </a>
       ),
