@@ -20,15 +20,31 @@ export function TransactionHistory({ address, theme = 'dark' }: TransactionHisto
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        
+        // Fetch last 5 transactions for this user from Hiro API
+        const res = await fetch(`https://api.mainnet.hiro.so/extended/v1/address/${address}/transactions?limit=5`)
+        const data = await res.json()
 
+        // Filter for HashLock Core interactions
+        const hashlockTxs = data.results.filter((tx: any) => 
+          tx.contract_call?.contract_id?.includes('hashlock-core')
+        )
+        setTransactions(hashlockTxs)
+      } catch (err) {
+        console.error("Failed to fetch history", err)
+      } finally {
+        setLoading(false)
+      }
+    }
 
     if (address) fetchHistory()
   }, [address])
 
   const getStatusIcon = (status: string) => {
-    if (status === 'success') return <CheckCircle2 size={14} className="text-emerald-500"
-   
+    if (status === 'success') return <CheckCircle2 size={14} className="text-emerald-500" />
+    if (status === 'pending') return <Clock size={14} className="text-amber-500 animate-pulse" />
+    return <XCircle size={14} className="text-rose-500" />
+  }
+
   return (
     <div className={`mt-12 w-full max-w-md mx-auto p-6 rounded-3xl border transition-all duration-500 ${
       theme === 'dark' ? 'bg-white/[0.01] border-white/5' : 'bg-slate-50 border-slate-200'
