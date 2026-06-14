@@ -23,6 +23,17 @@ export default function App() {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
+    }
+    localStorage.setItem('hashlock-theme', theme);
+  }, [theme]);
+
+  // Hydrate session on load
+  useEffect(() => {
+    if (userSession.isUserSignedIn()) {
+      const userData = userSession.loadUserData()
+      setAddress(userData.profile.stxAddress.mainnet)
+    }
+  }, [])
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
