@@ -20,8 +20,7 @@ export function TransactionHistory({ address, theme = 'dark' }: TransactionHisto
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        // Fetch last 5 transactions for this user from Hiro API
-        const res = await fetch(`https://api.mainnet.hiro.so/extended/v1/address/${address}/transactions?limit=5`
+        
 
 
     if (address) fetchHistory()
