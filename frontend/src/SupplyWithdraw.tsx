@@ -23,11 +23,6 @@ export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps)
   const handleTxSuccess = (txId: string, action: string) => {
     toast.success(`${action} Submitted`, {
       description: (
-        <a 
-          href={`${EXPLORER_URL}${txId}?chain=mainnet`} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 mt-2 text-[#00E5FF] font-bold hover:underline"
         >
           View on Explorer <ExternalLink size={14} />
         </a>
