@@ -7,6 +7,7 @@ import { network } from './lib/stacks'
 import { LoadingSpinner } from './LoadingSpinner' // Ensure you created this file!
 
 const EXPLORER_URL = 'https://explorer.hiro.so/txid/' 
+const CORE = "SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-core"
 const VAULT = "SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-isolated-sbtc-v1"
 
 interface SupplyWithdrawProps {
@@ -17,7 +18,17 @@ interface SupplyWithdrawProps {
 export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps) {
   const [amount, setAmount] = useState('')
   // Track which action is currently pending to show the correct spinner
-  const [pendingAction, setPendingAction] = useState<'supply' | 'withdraw' | null>(
+  const [pendingAction, setPendingAction] = useState<'supply' | 'withdraw' | null>(null)
+
+  const handleTxSuccess = (txId: string, action: string) => {
+    toast.success(`${action} Submitted`, {
+      description: (
+        <a 
+          href={`${EXPLORER_URL}${txId}?chain=mainnet`} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 mt-2 text-[#00E5FF] font-bold hover:underline"
+        >
           View on Explorer <ExternalLink size={14} />
         </a>
       ),
@@ -30,7 +41,7 @@ export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps)
 
   const executeTx = (functionName: 'supply' | 'withdraw') => {
     if (!amount || Number(amount) <= 0) return toast.error('Enter a valid amount')
-    
+
     setPendingAction(functionName)
     const microAmount = Math.floor(Number(amount) * 100_000_000)
 
@@ -56,7 +67,7 @@ export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps)
 
   return (
     <div className="flex flex-col w-full animate-in fade-in slide-in-from-bottom-4 duration-700">
-      
+
       {/* Protocol Badge */}
       <div className="flex items-center gap-2 mb-6 px-3 py-1.5 rounded-lg bg-[#00E5FF]/5 border border-[#00E5FF]/20 w-fit">
         <ShieldCheck size={14} className="text-[#00E5FF]" />
