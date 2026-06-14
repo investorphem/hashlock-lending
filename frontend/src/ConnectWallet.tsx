@@ -7,6 +7,8 @@ interface ConnectWalletProps {
   theme?: 'dark' | 'light'
 }
 
+export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps) {
+
   const handleConnect = () => {
     showConnect({
       appDetails: {
@@ -15,7 +17,15 @@ interface ConnectWalletProps {
       },
       onFinish: () => {
         const userData = userSession.loadUserData()
+        // Ensure we grab the right address format
+        onConnect(userData.profile.stxAddress.mainnet)
+      },
+      userSession,
+    })
+  }
+
   return (
+    <div className="flex flex-col items-center justify-center py-6 w-full group/container">
 
       {/* Icon Container with Floating Animation */}
       <div className={`
