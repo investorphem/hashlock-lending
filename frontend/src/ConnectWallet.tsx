@@ -17,13 +17,6 @@ export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps)
       },
       onFinish: () => {
         const userData = userSession.loadUserData()
-        // Ensure we grab the right address format
-        onConnect(userData.profile.stxAddress.mainnet)
-      },
-      userSession,
-    })
-  }
-
   return (
     <div className="flex flex-col items-center justify-center py-6 w-full group/container">
 
