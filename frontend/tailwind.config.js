@@ -12,10 +12,6 @@ export default {
           DEFAULT: '#1A202C',
           dark: '#0A1118',
         },
-        verify: {
-          green: '#4ADE80',
-        }
-      },
       fontFamily: {
         sans: ['Inter', 'sans-serif', 'system-ui'],
       },
