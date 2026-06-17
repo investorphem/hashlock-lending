@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { ConnectWallet } from './ConnectWallet'
 import { SupplyWithdraw } from './SupplyWithdraw'
+import { TransactionHistory } from './TransactionHistory'
 import { userSession } from './lib/stacks'
 import { Toaster, toast } from 'sonner'
+import { Moon, Sun } from 'lucide-react'
 
 export default function App() {
   const [address, setAddress] = useState<string>('')
@@ -24,6 +26,14 @@ export default function App() {
     }
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
+
+  // Hydrate session on load
+  useEffect(() => {
+    if (userSession.isUserSignedIn()) {
+      const userData = userSession.loadUserData()
+      setAddress(userData.profile.stxAddress.mainnet)
+    }
+  }, [])
 
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
