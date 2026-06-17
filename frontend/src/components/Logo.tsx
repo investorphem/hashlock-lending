@@ -3,16 +3,6 @@ import React from 'react';
 interface LogoProps {
   className?: string;
   theme?: 'dark' | 'light';
-}
-
-export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "dark" }) => {
-  return (
-    <svg 
-      viewBox="0 0 100 100" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg" 
-      className={`transition-all duration-700 ${className}`}
-    >
 
       {/* Hexagon Frame */}
       <path 
