@@ -27,15 +27,6 @@ export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps)
   return (
     <div className="flex flex-col items-center justify-center py-6 w-full group/container">
 
-      {/* Icon Container with Floating Animation */}
-      <div className={`
-        mb-8 p-6 rounded-[2.5rem] transition-all duration-700
-        group-hover/container:scale-105 group-hover/container:-translate-y-2
-        ${theme === 'dark' 
-          ? 'bg-[#00E5FF]/5 border border-[#00E5FF]/20 shadow-[0_0_50px_rgba(0,229,255,0.1)]' 
-          : 'bg-blue-50/50 border border-blue-100 shadow-xl'
-        }
-      `}>
         <Wallet 
           size={60} 
           strokeWidth={1.2}
