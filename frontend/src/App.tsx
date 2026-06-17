@@ -27,14 +27,6 @@ export default function App() {
     localStorage.setItem('hashlock-theme', theme);
   }, [theme]);
 
-  // Hydrate session on load
-  useEffect(() => {
-    if (userSession.isUserSignedIn()) {
-      const userData = userSession.loadUserData()
-      setAddress(userData.profile.stxAddress.mainnet)
-    }
-  }, [])
-
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
   const handleSignOut = () => {
