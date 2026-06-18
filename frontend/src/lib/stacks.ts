@@ -4,7 +4,11 @@ import { StacksMainnet, StacksTestnet } from '@stacks/network'
 // ==========================================
 // NETWORK CONFIGURATION
 // ==========================================
-// Centralized network configuration.
+// Centralized network configuration. 
+// Swap to `new StacksTestnet()` when doing local testing.
+export const network = new StacksMainnet()
+
+// ==========================================
 // AUTHENTICATION & SESSION
 // ==========================================
 // 'store_write' and 'publish_data' permissions are perfect 
