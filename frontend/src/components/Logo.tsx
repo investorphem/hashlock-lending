@@ -27,7 +27,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
         <rect x="28" y="30" width="10" height="40" rx="2" />
         <rect x="38" y="45" width="24" height="10" rx="2" />
         <rect x="62" y="30" width="10" height="40" rx="2" />
-        <rect x="62" y="30" width="16" height="10" rx="2" />
         <rect x="62" y="60" width="16" height="10" rx="2" />
       </g>
 
