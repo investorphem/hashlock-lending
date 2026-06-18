@@ -4,8 +4,7 @@ import { StacksMainnet, StacksTestnet } from '@stacks/network'
 // ==========================================
 // NETWORK CONFIGURATION
 // ==========================================
-// Centralized network configuration. 
-// ==========================================
+// Centralized network configuration.
 // AUTHENTICATION & SESSION
 // ==========================================
 // 'store_write' and 'publish_data' permissions are perfect 
