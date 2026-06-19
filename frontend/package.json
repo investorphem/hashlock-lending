@@ -14,9 +14,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
   "dependencies": {
     "@stacks/connect": "^7.5.0",
     "@stacks/network": "^6.9.0",
