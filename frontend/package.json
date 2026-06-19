@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Yield on Bitcoin. Locked by code. Verified by hash.",
   "author": "Oluwafemi Olagoke",
+  "homepage": "https://hashlocklending.vercel.app",
   "repository": {
     "type": "git",
     "url": "https://github.com/investorphem/hashlock-lending.git"
@@ -13,6 +14,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@stacks/connect": "^7.5.0",
     "@stacks/network": "^6.9.0",
