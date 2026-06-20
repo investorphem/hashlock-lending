@@ -8,14 +8,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian
+        obsidian: {
+          DEFAULT: '#1A202C',
           dark: '#0A1118',
+        },
+        cyan: {
+          electric: '#00E5FF',
         },
         verify: {
           green: '#4ADE80',
         }
       },
       fontFamily: {
+        sans: ['Inter', 'sans-serif', 'system-ui'],
+      },
+      boxShadow: {
         'cyan-glow': '0 0 20px rgba(0, 229, 255, 0.3)',
         'cyan-glow-lg': '0 0 35px rgba(0, 229, 255, 0.4)',
         // New: Subtle glass border glow
