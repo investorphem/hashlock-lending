@@ -8,8 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: {
-          DEFAULT: '#1A202C',
+        obsidian
           dark: '#0A1118',
         },
         verify: {
