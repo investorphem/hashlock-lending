@@ -18,15 +18,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-
+    "@stacks/connect": "^7.5.0",
+    "@stacks/network": "^6.9.0",
     "@stacks/transactions": "^6.13.0",
-   
+    "lucide-react": "^0.359.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sonner": "^1.4.3"
   },
   "devDependencies": {
-    
+    "@types/node": "^20.11.30",
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.0.0",
