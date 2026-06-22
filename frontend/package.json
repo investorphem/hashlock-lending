@@ -18,8 +18,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@stacks/connect": "^7.5.0",
- 
+
     "@stacks/transactions": "^6.13.0",
    
     "react": "^18.2.0",
