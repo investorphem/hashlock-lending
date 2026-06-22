@@ -22,8 +22,6 @@
     "@stacks/network": "^6.9.0",
     
     "lucide-react": "^0.359.0",
-  
- 
     "sonner": "^1.4.3"
   },
   "devDependencies": {
