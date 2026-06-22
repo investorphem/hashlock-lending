@@ -13,8 +13,7 @@
     "moduleResolution": "Node",
     "isolatedModules": true,
     "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
+    "baseUrl": "."
       "@/*": ["src/*"]
     }
   },
