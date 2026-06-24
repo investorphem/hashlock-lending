@@ -13,7 +13,7 @@ export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('hashlock-theme');
     if (saved === 'dark' || saved === 'light') return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' :
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   })
 
   // 2. Persist theme choice and update the DOM
