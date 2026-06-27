@@ -6,13 +6,6 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
 
-  // 1. Premium Path Aliases for clean imports
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-
   // 3. Enterprise Build Optimizations
   build: {
     target: 'esnext', // Optimizes for modern browsers
