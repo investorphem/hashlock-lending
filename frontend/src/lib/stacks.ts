@@ -1,6 +1,13 @@
 import { AppConfig, UserSession } from '@stacks/connect'
+import { StacksMainnet, StacksTestnet } from '@stacks/network'
+
 // ==========================================
 // NETWORK CONFIGURATION
+// ==========================================
+// Centralized network configuration. 
+// Swap to `new StacksTestnet()` when doing local testing.
+export const network = new StacksMainnet()
+
 // ==========================================
 // AUTHENTICATION & SESSION
 // ==========================================
