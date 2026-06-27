@@ -4,9 +4,6 @@ import { ExternalLink, History, CheckCircle2, Clock, XCircle } from 'lucide-reac
 interface Tx {
   tx_id: string
   tx_status: string
-  contract_call: { function_name: string }
-  burn_block_time_iso: string
-}
 
 interface TransactionHistoryProps {
   address: string
