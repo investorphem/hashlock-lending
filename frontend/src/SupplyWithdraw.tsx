@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { openContractCall } from '@stacks/connect'
 import { toast } from 'sonner'
 import { ArrowDownRight, ArrowUpRight, ExternalLink, ShieldCheck } from 'lucide-react'
 import { network } from './lib/stacks'
