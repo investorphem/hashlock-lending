@@ -15,7 +15,6 @@ interface TransactionHistoryProps {
 
 export function TransactionHistory({ address, theme = 'dark' }: TransactionHistoryProps) {
   const [transactions, setTransactions] = useState<Tx[]>([])
-  const [loading, setLoading] = useState(true)
 
         // Fetch last 5 transactions for this user from Hiro API
         const res = await fetch(`https://api.mainnet.hiro.so/extended/v1/address/${address}/transactions?limit=5`)
