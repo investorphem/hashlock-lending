@@ -1,10 +1,4 @@
 import React from 'react';
-
-interface LogoProps {
-  className?: string;
-  theme?: 'dark' | 'light';
-}
-
 export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "dark" }) => {
   return (
     <svg 
