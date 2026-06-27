@@ -13,8 +13,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
       xmlns="http://www.w3.org/2000/svg" 
       <defs>
         <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="100%" stopColor="#2563EB" />
-        </linearGradient>
         <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="3" result="blur"/>
           <feMerge>
