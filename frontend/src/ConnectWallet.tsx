@@ -5,8 +5,7 @@ interface ConnectWalletProps {
   onConnect: (addr: string) => void
   theme?: 'dark' | 'light'
 }
-
-export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps) {
+ ConnectWalletProps) {
 
   const handleConnect = () => {
     showConnect({
