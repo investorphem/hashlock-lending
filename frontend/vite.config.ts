@@ -13,12 +13,6 @@ export default defineConfig({
     },
   },
 
-  // 2. Dev Server Quality of Life
-  server: {
-    port: 3000,
-    open: true, // Automatically opens your browser when you run 'npm run dev'
-  },
-
   // 3. Enterprise Build Optimizations
   build: {
     target: 'esnext', // Optimizes for modern browsers
