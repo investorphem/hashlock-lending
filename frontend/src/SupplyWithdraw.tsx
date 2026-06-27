@@ -1,5 +1,3 @@
-
-import { ArrowDownRight, ArrowUpRight, ExternalLink, ShieldCheck } from 'lucide-react'
 import { network } from './lib/stacks'
 import { LoadingSpinner } from './LoadingSpinner' // Ensure you created this file!
 
