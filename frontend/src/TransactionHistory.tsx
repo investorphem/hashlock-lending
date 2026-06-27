@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+
 import { ExternalLink, History, CheckCircle2, Clock, XCircle } from 'lucide-react'
 
 interface Tx {
