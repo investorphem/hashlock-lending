@@ -19,7 +19,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
         className={`${
           theme === 'dark' 
             ? 'fill-white/[0.03] stroke-white/10' 
-            : 'fill-slate-100/50 stroke-slate-200'
         }`}
         strokeWidth="2"
       />
