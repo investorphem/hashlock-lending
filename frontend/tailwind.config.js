@@ -12,8 +12,7 @@ export default {
           DEFAULT: '#1A202C',
           dark: '#0A1118',
         },
-        cyan: {
-          electric: '#00E5FF',
+        cyan: 
         },
         verify: {
           green: '#4ADE80
