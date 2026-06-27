@@ -11,8 +11,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
       viewBox="0 0 100 100" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg" 
-      className={`transition-all duration-700 ${className}`}
-    >
       <defs>
         <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="100%" stopColor="#2563EB" />
