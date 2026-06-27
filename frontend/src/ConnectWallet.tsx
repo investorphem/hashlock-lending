@@ -16,13 +16,7 @@ export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps)
         icon: window.location.origin + '/favicon.svg'
       },
       onFinish: () => {
-        const userData = userSession.loadUserData()
-        // Ensure we grab the right address format
-        onConnect(userData.profile.stxAddress.mainnet)
-      },
-      userSession,
-    })
-  }
+        const userData = userSession.loadUserData
 
   return (
     <div className="flex flex-col items-center justify-center py-6 w-full group/container">
