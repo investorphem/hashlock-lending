@@ -1,11 +1,13 @@
 import { showConnect } from '@stacks/connect'
+import { Wallet, ArrowRight } from 'lucide-react'
 import { userSession } from './lib/stacks' // Use the centralized session
 
 interface ConnectWalletProps {
   onConnect: (addr: string) => void
   theme?: 'dark' | 'light'
 }
- ConnectWalletProps) {
+
+export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps) {
 
   const handleConnect = () => {
     showConnect({
@@ -13,7 +15,15 @@ interface ConnectWalletProps {
         name: 'HashLock Lending',
         icon: window.location.origin + '/favicon.svg'
       },
-     
+      onFinish: () => {
+        const userData = userSession.loadUserData()
+        // Ensure we grab the right address format
+        onConnect(userData.profile.stxAddress.mainnet)
+      },
+      userSession,
+    })
+  }
+
   return (
     <div className="flex flex-col items-center justify-center py-6 w-full group/container">
 
