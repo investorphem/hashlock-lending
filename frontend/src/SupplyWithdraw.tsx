@@ -1,3 +1,8 @@
+import { useState } from 'react'
+import { openContractCall } from '@stacks/connect'
+import { uintCV, contractPrincipalCV } from '@stacks/transactions'
+import { toast } from 'sonner'
+import { ArrowDownRight, ArrowUpRight, ExternalLink, ShieldCheck } from 'lucide-react'
 import { network } from './lib/stacks'
 import { LoadingSpinner } from './LoadingSpinner' // Ensure you created this file!
 
@@ -8,6 +13,10 @@ const VAULT = "SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-isolated-sbtc-
 interface SupplyWithdrawProps {
   address: string
   theme?: 'dark' | 'light'
+}
+
+export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps) {
+  const [amount, setAmount] = useState('')
   // Track which action is currently pending to show the correct spinner
   const [pendingAction, setPendingAction] = useState<'supply' | 'withdraw' | null>(null)
 
