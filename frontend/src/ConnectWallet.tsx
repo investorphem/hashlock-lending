@@ -1,5 +1,4 @@
 import { showConnect } from '@stacks/connect'
-import { Wallet, ArrowRight } from 'lucide-react'
 import { userSession } from './lib/stacks' // Use the centralized session
 
 interface ConnectWalletProps {
