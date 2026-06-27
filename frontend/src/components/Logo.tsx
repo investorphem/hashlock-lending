@@ -5,7 +5,7 @@ interface LogoProps {
   theme?: 'dark' | 'light';
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "dark" }) => {
+export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", them
   return (
     <svg 
       viewBox="0 0 100 100" 
