@@ -27,8 +27,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
 
       <path 
         d="M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z" 
-        className={`${theme === 'dark' ? 'fill-white/[0.03] stroke-white/10' : 'fill-slate-100/50 stroke-slate-200'}`}
-        strokeWidth="2"
+        className={`${theme === 'dark' ? 'fill-white/[0.03] stroke-white/10' : 'fill-slate-100/50 stroke-slate-200'
       />
 
       {/* The Interlock Symbol */}
