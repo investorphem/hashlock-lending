@@ -13,10 +13,6 @@ const VAULT = "SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.hashlock-isolated-sbtc-
 interface SupplyWithdrawProps {
   address: string
   theme?: 'dark' | 'light'
-}
-
-export function SupplyWithdraw({ address, theme = 'dark' }: SupplyWithdrawProps) {
-  const [amount, setAmount] = useState('')
   // Track which action is currently pending to show the correct spinner
   const [pendingAction, setPendingAction] = useState<'supply' | 'withdraw' | null>(null)
 
