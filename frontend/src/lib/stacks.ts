@@ -5,7 +5,6 @@ import { StacksMainnet, StacksTestnet } from '@stacks/network'
 // NETWORK CONFIGURATION
 // ==========================================
 // Centralized network configuration. 
-// Swap to `new StacksTestnet()` when doing local testing.
 
 // ==========================================
 // AUTHENTICATION & SESSION
