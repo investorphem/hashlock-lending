@@ -20,7 +20,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
         </linearGradient>
         <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge>
            
         </filter>
       </defs>
