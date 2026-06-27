@@ -18,10 +18,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
           <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
           <feMerge>
             <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
 
       {/* Interlocking 'Data Blocks' */}
       <g 
