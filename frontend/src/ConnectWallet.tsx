@@ -16,7 +16,6 @@ export function ConnectWallet({ onConnect, theme = 'dark' }: ConnectWalletProps)
         icon: window.location.origin + '/favicon.svg'
       },
       onFinish: () => {
-        const userData = userSession.loadUserData
 
   return (
     <div className="flex flex-col items-center justify-center py-6 w-full group/container">
