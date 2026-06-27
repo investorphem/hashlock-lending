@@ -24,8 +24,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
             <feMergeNode in="blur"/>
             <feMergeNode in="SourceGraphic"/>
           </feMerge>
-        </filter>
-      </defs>
 
       {/* Hexagon Frame */}
       <path 
