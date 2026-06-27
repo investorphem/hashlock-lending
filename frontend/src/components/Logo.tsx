@@ -15,7 +15,6 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
     >
       <defs>
         <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00E5FF" />
           <stop offset="100%" stopColor="#2563EB" />
         </linearGradient>
         <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
