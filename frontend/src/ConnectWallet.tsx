@@ -13,8 +13,7 @@ interface ConnectWalletProps {
         name: 'HashLock Lending',
         icon: window.location.origin + '/favicon.svg'
       },
-      onFinish: () => {
-
+     
   return (
     <div className="flex flex-col items-center justify-center py-6 w-full group/container">
 
