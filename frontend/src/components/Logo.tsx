@@ -20,13 +20,18 @@ export const Logo: React.FC<LogoProps> = ({ className = "w-10 h-10", theme = "da
         </linearGradient>
         <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="3" result="blur"/>
-           
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
 
+      {/* Hexagon Frame */}
       <path 
         d="M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z" 
-        className={`${theme === 'dark' ? 'fill-white/[0.03] stroke-white/10' : 'fill-slate-100/50 stroke-slate-200'
+        className={`${theme === 'dark' ? 'fill-white/[0.03] stroke-white/10' : 'fill-slate-100/50 stroke-slate-200'}`}
+        strokeWidth="2"
       />
 
       {/* The Interlock Symbol */}
